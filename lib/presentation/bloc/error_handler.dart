@@ -29,7 +29,7 @@ String _parseDioError(
       if (error.error is SocketException) {
         message = S.of(context).noInternetConnection;
       } else {
-        final dioError = error?.error?.body.toString();
+        final dioError = error.error?.body.toString();
         message = dioError ?? S.of(context).somethingWentWrong;
       }
       break;

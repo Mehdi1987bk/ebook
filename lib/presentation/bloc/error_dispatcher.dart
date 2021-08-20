@@ -10,7 +10,7 @@ import 'error_handler.dart';
 
 mixin ErrorDispatcher<Page extends BaseScreen, Bloc extends BaseBloc>
     on BaseState<Page, Bloc> {
-  StreamSubscription errorSubscription;
+  StreamSubscription? errorSubscription;
 
   @override
   void initState() {

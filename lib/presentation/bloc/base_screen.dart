@@ -4,17 +4,16 @@ import 'package:flutter/services.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:rxdart/rxdart.dart';
 
-
 import 'base_bloc.dart';
 import 'bloc_provider.dart';
 
 abstract class BaseScreen<Bloc extends BaseBloc> extends StatefulWidget {
-  BaseScreen({Key key}) : super(key: key);
+  BaseScreen({Key? key}) : super(key: key);
 }
 
 abstract class BaseState<T extends BaseScreen, Bloc extends BaseBloc>
     extends State<T> with AutomaticKeepAliveClientMixin {
-  Bloc bloc;
+  late Bloc bloc;
 
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
@@ -22,7 +21,7 @@ abstract class BaseState<T extends BaseScreen, Bloc extends BaseBloc>
   void initState() {
     super.initState();
     bloc = provideBloc();
-    bloc?.init();
+    bloc.init();
   }
 
   @override
@@ -65,7 +64,7 @@ abstract class BaseState<T extends BaseScreen, Bloc extends BaseBloc>
         StreamBuilder<bool>(
           stream: bloc.loadingStream.distinct(),
           builder: (context, snapshot) {
-            if (snapshot.hasData && snapshot.data) {
+            if (snapshot.hasData && snapshot.data!) {
               return AbsorbPointer(
                   child: Container(
                       width: double.infinity,
@@ -91,7 +90,7 @@ abstract class BaseState<T extends BaseScreen, Bloc extends BaseBloc>
 
   void showSnackbar(String message) {
     if (message != null) {
-      scaffoldKey.currentState.showSnackBar(SnackBar(
+      scaffoldKey.currentState?.showSnackBar(SnackBar(
         content: Text(message),
       ));
     }
@@ -103,13 +102,13 @@ abstract class BaseState<T extends BaseScreen, Bloc extends BaseBloc>
 
   Widget body();
 
-  PreferredSizeWidget appBar() => null;
+  PreferredSizeWidget? appBar() => null;
 
-  Widget drawer() => null;
+  Widget? drawer() => null;
 
-  Widget bottomNavigationBar() => null;
+  Widget? bottomNavigationBar() => null;
 
-  Widget floatingActionButton() => null;
+  Widget? floatingActionButton() => null;
 
   Widget overlay() => const SizedBox.shrink();
 
@@ -122,14 +121,14 @@ abstract class BaseState<T extends BaseScreen, Bloc extends BaseBloc>
   @override
   bool get wantKeepAlive => false;
 
-  Color backgroundColor() => null;
+  Color? backgroundColor() => null;
 }
 
 abstract class BaseStateWithFlushBar<T extends BaseScreen,
     Bloc extends BaseBloc> extends BaseState<T, Bloc> {
   final Duration _animDuration = Duration(milliseconds: 500);
   PublishSubject<bool> _flush = PublishSubject<bool>();
-  String _message;
+  String? _message;
 
   @override
   Widget overlay() {
@@ -142,7 +141,7 @@ abstract class BaseStateWithFlushBar<T extends BaseScreen,
               alignment: Alignment.bottomCenter,
               child: AnimatedSwitcher(
                 duration: _animDuration,
-                child: (snapshot.hasData && snapshot.data)
+                child: (snapshot.hasData && snapshot.data!)
                     ? FlushWidget(
                         message: _message ?? '',
                         onTap: () {
@@ -166,7 +165,7 @@ abstract class BaseStateWithFlushBar<T extends BaseScreen,
         });
   }
 
-  void showFlush({String message, VoidCallback onTap}) {
+  void showFlush({String? message, VoidCallback? onTap}) {
     _message = message;
     _flush.add(true);
     Future<void>.delayed(Duration(seconds: 5)).then((value) {
@@ -187,7 +186,7 @@ class FlushWidget extends StatelessWidget {
   final String message;
   final VoidCallback onTap;
 
-  FlushWidget({this.message, this.onTap});
+  FlushWidget({required this.message, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -197,7 +196,7 @@ class FlushWidget extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         constraints: BoxConstraints(minHeight: 48.0),
         decoration: BoxDecoration(
-          color: AppColors.primaryColor,
+          color: AppColors.homeAppBar,
           borderRadius: BorderRadius.all(Radius.circular(8.0)),
         ),
         child: Row(
@@ -215,7 +214,7 @@ class FlushWidget extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .button
-                    .copyWith(color: Colors.white),
+                    ?.copyWith(color: Colors.white),
               ),
             ),
           ],

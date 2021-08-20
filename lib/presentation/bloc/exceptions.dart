@@ -1,5 +1,5 @@
 class NoSuchEmailException implements Exception {
   String email;
 
-  NoSuchEmailException({this.email});
+  NoSuchEmailException({required this.email});
 }

@@ -5,12 +5,12 @@ import 'base_bloc.dart';
 import 'bloc_provider.dart';
 
 abstract class BaseDrawer<Bloc extends BaseBloc> extends StatefulWidget {
-  BaseDrawer({Key key}) : super(key: key);
+  BaseDrawer({Key? key}) : super(key: key);
 }
 
 abstract class BaseState<T extends BaseDrawer, Bloc extends BaseBloc>
     extends State<T> {
-  Bloc bloc;
+  late Bloc bloc;
 
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
@@ -18,7 +18,7 @@ abstract class BaseState<T extends BaseDrawer, Bloc extends BaseBloc>
   void initState() {
     super.initState();
     bloc = provideBloc();
-    bloc?.init();
+    bloc.init();
   }
 
   @override
