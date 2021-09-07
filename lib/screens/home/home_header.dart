@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 
+import 'home_screen.dart';
+
 class HomeHeader extends StatelessWidget {
+final VoidCallback onMenuTap;
+
+  const HomeHeader({Key? key,required this.onMenuTap}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
-
       alignment: Alignment.bottomCenter,
-      height: MediaQuery
-          .of(context)
-          .padding
-          .top + 80,
+      height: MediaQuery.of(context).padding.top + 80,
       decoration: const BoxDecoration(
           color: AppColors.appColor,
           borderRadius: BorderRadius.vertical(
@@ -23,13 +24,17 @@ class HomeHeader extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: InkWell(
               child: Image.asset('asset/menu.png'),
-              onTap: () {},
+              onTap: onMenuTap
+
             ),
-          ), Padding(
+          ),
+          Padding(
             padding: const EdgeInsets.all(16.0),
             child: InkWell(
               child: Image.asset('asset/story.png'),
-              onTap: () {},
+              onTap: () {
+
+              },
             ),
           ),
           const Spacer(),
@@ -39,7 +44,8 @@ class HomeHeader extends StatelessWidget {
               child: Image.asset('asset/box.png'),
               onTap: () {},
             ),
-          ), Padding(
+          ),
+          Padding(
             padding: const EdgeInsets.all(16.0),
             child: Material(
               color: Colors.transparent,
@@ -54,4 +60,8 @@ class HomeHeader extends StatelessWidget {
       ),
     );
   }
+
 }
+
+
+

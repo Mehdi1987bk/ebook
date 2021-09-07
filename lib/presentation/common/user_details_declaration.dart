@@ -80,11 +80,7 @@ class UserInfo extends StatelessWidget {
             ],
           ),
 
-          Container(
-            margin: EdgeInsets.only(top: 36,bottom: 33,left: 16,right: 16),
-            height: 1,
-            color: AppColors.appColor,
-          ),
+
 
         ],
       ),

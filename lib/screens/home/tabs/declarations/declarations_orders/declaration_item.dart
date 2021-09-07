@@ -5,7 +5,7 @@ import 'package:kango/domain/entities/declaration.dart';
 import 'package:kango/domain/entities/order.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
-import 'package:kango/screens/home/tabs/home/order_edit.dart';
+import 'package:kango/screens/home/tabs/faktura_add/factura_add.dart';
 
 import 'order_dialog.dart';
 
@@ -171,8 +171,8 @@ class OrderItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15, right: 15, bottom: 10),
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
-        onTap: () => showDialog(
-            context: context, builder: (_) => OrderInfoDialog(order: order)),
+        onTap: () => { showDialog(
+        context: context, builder: (_) => OrderInfoDialog(order: order,))},
         child: Column(
           children: [
             Container(
@@ -280,7 +280,7 @@ class OrderItem extends StatelessWidget {
               height: 0.5,
               color: AppColors.appColor,
             ),
-            EditPaymentOrders()
+            EditPaymentOrders(order: order,)
           ],
         ),
       ),
@@ -288,14 +288,13 @@ class OrderItem extends StatelessWidget {
   }
 }
 
-class EditPaymentOrders extends StatefulWidget {
-  @override
-  _EditPaymentOrdersState createState() => _EditPaymentOrdersState();
-}
+class EditPaymentOrders extends StatelessWidget {
+  final Order order;
 
-class _EditPaymentOrdersState extends State<EditPaymentOrders> {
   final styleText4 = const TextStyle(
       fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.onbording1);
+
+  const EditPaymentOrders({Key? key, required this.order}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -304,8 +303,7 @@ class _EditPaymentOrdersState extends State<EditPaymentOrders> {
         children: [
           GestureDetector(
             behavior: HitTestBehavior.translucent,
-            onTap: () =>
-                showDialog(context: context, builder: (_) => OrderEdit()),
+            onTap: (){},
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image.asset(
@@ -315,7 +313,7 @@ class _EditPaymentOrdersState extends State<EditPaymentOrders> {
               ),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Container(
               width: 158,
               height: 50,
@@ -328,11 +326,11 @@ class _EditPaymentOrdersState extends State<EditPaymentOrders> {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
-                    padding: EdgeInsets.fromLTRB(8, 10, 8, 11),
-                    margin: EdgeInsets.all(6),
+                    padding: const EdgeInsets.fromLTRB(8, 10, 8, 11),
+                    margin: const EdgeInsets.all(6),
                     child: Text(S.of(context).dniEdin, style: styleText4),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Padding(
                     padding: const EdgeInsets.only(right: 15),
                     child: Image.asset('asset/cart.png'),

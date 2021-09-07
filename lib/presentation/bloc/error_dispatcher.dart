@@ -8,6 +8,9 @@ import 'base_bloc.dart';
 import 'base_screen.dart';
 import 'error_handler.dart';
 
+typedef bool ErrorHandler(Object error);
+
+
 mixin ErrorDispatcher<Page extends BaseScreen, Bloc extends BaseBloc>
     on BaseState<Page, Bloc> {
   StreamSubscription? errorSubscription;
@@ -28,8 +31,15 @@ mixin ErrorDispatcher<Page extends BaseScreen, Bloc extends BaseBloc>
         // );
         Future<void>.delayed(const Duration(seconds: 1))
             .then((onValue) => Navigator.pop(context));
-      } else
-        showSnackbar(parseError(error, context));
+      } else {
+        if(errorHandler == null){
+          showSnackbar(parseError(error, context));
+        }else{
+          if(errorHandler!.call(error)){
+            showSnackbar(parseError(error, context));
+          }
+        }
+      }
     });
   }
 
@@ -38,4 +48,8 @@ mixin ErrorDispatcher<Page extends BaseScreen, Bloc extends BaseBloc>
     errorSubscription?.cancel();
     super.dispose();
   }
+
+  ErrorHandler? get errorHandler => null;
+
+
 }

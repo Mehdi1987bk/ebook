@@ -1,16 +1,16 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:kango/domain/entities/declaration.dart';
 import 'package:kango/domain/entities/order.dart';
 import 'package:kango/generated/l10n.dart';
-import 'package:kango/presentation/common/image_selector.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/utils/text_style.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+void downloadCallback(String id, DownloadTaskStatus status, int progress) {}
 
 class OrderInfoDialog extends StatefulWidget {
   final Order order;
@@ -25,32 +25,137 @@ class _OrderInfoDialogState extends State<OrderInfoDialog> {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
+        elevation: 10,
+        insetPadding: const EdgeInsets.all(16),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(22.0))),
         backgroundColor: AppColors.homeButtonDontHover,
         contentPadding: EdgeInsets.zero,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              bottom: 15,
+              top: 12,
+              left: 14,
+            ),
+            child: Row(
+              children: [
+                Text(
+                  S.of(context).trafl,
+                  style: TextStyles.styleText5,
+                ),
+                const Spacer(),
+                SimpleDialogOption(
+                  onPressed: () {
+                    Navigator.pop(
+                      context,
+                    );
+                  },
+                  child: const Icon(Icons.close),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(bottom: 15, left: 14, right: 14),
+            height: 1,
+            color: Colors.grey.withOpacity(0.8),
+          ),
           _DialogItem(
-            title: S.of(context).scStatus,
+            title: S.of(context).kod,
             value: widget.order.price,
           ),
           _DialogItem(
-            title: S.of(context).scStatus,
+            title: S.of(context).maaza,
             value: widget.order.price,
           ),
           _DialogItem(
-            title: S.of(context).scStatus,
+            title: S.of(context).fakturaQiymti,
             value: widget.order.price,
           ),
           _DialogItem(
-            title: S.of(context).scStatus,
+            title: S.of(context).kargoTakipNo,
             value: widget.order.price,
           ),
           _DialogItem(
-            title: S.of(context).scStatus,
+            title: S.of(context).ki,
             value: widget.order.price,
           ),
-          _FileItem(
+          _DialogItem(
+            title: S.of(context).atdrlma,
+            value: widget.order.price,
+          ),
+          _DialogItem(
+            title: S.of(context).statuss,
+            value: widget.order.price,
+          ),
+          _DialogItem(
+            title: S.of(context).scStatuss,
+            value: widget.order.price,
+          ),
+          _DialogItem(
+            title: S.of(context).qeyd,
+            value: widget.order.price,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 15, left: 15),
+            child: Text(S.of(context).faktura, style: TextStyles.styleText6),
+          ),
+          const _FileItem(
             url: 'https://unsplash.com/photos/XT9iDcKESjE/download?force=true',
-          )
+          ),
+          _DialogItem(
+            title: S.of(context).mhsulunSay,
+            value: widget.order.price,
+          ),
+          _DialogItem(
+            title: S.of(context).lavXidmtlr,
+            value: widget.order.price,
+          ),
+          _DialogItem(
+            title: S.of(context).kateqoriya,
+            value: widget.order.price,
+          ),
+          _DialogItem(
+            title: S.of(context).dm,
+            value: widget.order.price,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Text(S.of(context).mliyyatlar, style: TextStyles.styleText6),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, bottom: 29, right: 22),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                    width: 158,
+                    height: 50,
+                    decoration: BoxDecoration(
+                        color: AppColors.onbording1,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          padding: const EdgeInsets.fromLTRB(8, 10, 8, 11),
+                          margin: const EdgeInsets.all(6),
+                          child: Text(S.of(context).dniEdin,
+                              style: TextStyles.styleText8),
+                        ),
+                        const Spacer(),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: Image.asset('asset/cart.png'),
+                        ),
+                      ],
+                    )),
+              ],
+            ),
+          ),
         ]);
   }
 }
@@ -64,24 +169,31 @@ class _DialogItem extends StatelessWidget {
       {Key? key,
       required this.title,
       required this.value,
-      this.style = TextStyles.styleText2})
+      this.style = TextStyles.styleText7})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(title),
-        Text(
-          value,
-          style: style,
-        ),
-        Container(
-          margin: const EdgeInsets.only(bottom: 17, top: 20),
-          height: 1,
-          color: AppColors.appColor,
-        ),
-      ],
+    return Container(
+      width: MediaQuery.of(context).size.width / 0.3,
+      padding: const EdgeInsets.only(left: 16, bottom: 5, right: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title, style: TextStyles.styleText6),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            value,
+          ),
+          Container(
+            margin: const EdgeInsets.only(bottom: 15, top: 12),
+            height: 1,
+            color: Colors.grey.withOpacity(0.8),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -98,24 +210,65 @@ class _FileItem extends StatefulWidget {
 class _FileItemState extends State<_FileItem> {
   bool _permissionReady = false;
   late String _localPath;
+  dynamic taskId;
 
   @override
   void initState() {
     super.initState();
+    FlutterDownloader.registerCallback(downloadCallback);
   }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () async {
-
-      await  _prepare();
-      _downloadFile();
-      },
-      child: Container(
-        child: Text('fdfdfdfd'),
+    return Container(
+      height: 52,
+      width: MediaQuery.of(context).size.width,
+      padding: const EdgeInsets.only(left: 14, right: 14),
+      margin: const EdgeInsets.only(bottom: 19),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            primary: AppColors.appColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            textStyle: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            )),
+        onPressed: () async {
+          if (taskId != null) {
+            await _openDownloadedFile();
+          } else {
+            await _displayFile();
+          }
+        },
+        child: Row(
+          children: [
+            Text(S.of(context).endirin),
+            const Spacer(),
+            Image.asset('asset/u_export.png')
+          ],
+        ),
       ),
     );
+  }
+
+  Future<bool> _openDownloadedFile() {
+    if (taskId != null) {
+      return FlutterDownloader.open(taskId: taskId!);
+    } else {
+      return Future.value(false);
+    }
+  }
+
+  Future<void> _displayFile() async {
+    if (Platform.isAndroid) {
+      await _prepare();
+      _downloadFile();
+    } else if (Platform.isIOS) {
+      await _prepare();
+      _downloadFile();
+    }
   }
 
   _downloadFile() async {
@@ -129,7 +282,7 @@ class _FileItemState extends State<_FileItem> {
       return;
     }
 
-    final taskId = await FlutterDownloader.enqueue(
+    taskId = await FlutterDownloader.enqueue(
       url: widget.url,
       savedDir: _localPath,
       showNotification: true,

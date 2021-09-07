@@ -22,12 +22,12 @@ class _SpleshScreenState extends State<SpleshScreen> {
       sl.get<AuthRepository>().isLogged()
     ]).then((value) {
       if (value.last) {
-        Navigator.push(context,
+        Navigator.pushReplacement(context,
             CupertinoPageRoute(builder: (BuildContext context) {
           return HomeScreen();
         }));
       }else{
-        Navigator.push(context,
+        Navigator.pushReplacement(context,
             CupertinoPageRoute(builder: (BuildContext context) {
               return OnBoardingScreen();
             }));

@@ -44,6 +44,13 @@ class _DeclarationTabScreen
         )),
         SliverToBoxAdapter(
           child: Container(
+            margin: const EdgeInsets.only(top: 36,bottom: 33,left: 16,right: 16),
+            height: 1,
+            color: AppColors.appColor,
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: Container(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

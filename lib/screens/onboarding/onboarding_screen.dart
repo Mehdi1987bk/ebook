@@ -54,7 +54,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             valueListenable: _notifier,
             builder: (BuildContext context, value, Widget? child) {
               return Padding(
-                padding: const EdgeInsets.only(bottom: 55,left: 16),
+                padding: const EdgeInsets.only(bottom: 64,left: 16),
                 child: DotsIndicator(
                   dotsCount: 3,
                   position: value,
@@ -77,28 +77,31 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       floatingActionButton: ValueListenableBuilder<double>(
         valueListenable: _notifier,
         builder: (BuildContext context, value, Widget? child) {
-          return FloatingActionButton(
-            onPressed: () {
-              if(_controller.page == 2){
-                Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => LoginScreen()));
-              }else{
-              _controller.nextPage(curve: Curves.ease, duration: const Duration(milliseconds: 350));}
-            },
-            child: Container(
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
+          return Container(
+            padding: const EdgeInsets.only(right: 20,bottom: 40),
+            child: FloatingActionButton(
+              onPressed: () {
+                if(_controller.page == 2){
+                  Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => LoginScreen()));
+                }else{
+                _controller.nextPage(curve: Curves.ease, duration: const Duration(milliseconds: 350));}
+              },
+              child: Container(
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+                child: Icon(
+                  Icons.arrow_forward,
+                  color:
+                      OnboardingItems.loadItem()![_controller.page?.toInt() ?? 0]
+                          .color,
+                ),
               ),
-              child: Icon(
-                Icons.arrow_forward,
-                color:
-                    OnboardingItems.loadItem()![_controller.page?.toInt() ?? 0]
-                        .color,
-              ),
+              backgroundColor:
+                  OnboardingItems.loadItem()![_controller.page?.toInt() ?? 0]
+                      .color,
             ),
-            backgroundColor:
-                OnboardingItems.loadItem()![_controller.page?.toInt() ?? 0]
-                    .color,
           );
         },
       ),

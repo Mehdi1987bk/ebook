@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 
+
+final GlobalKey<BottomBarState> bottomBarKey = GlobalKey();
+
 class BottomBar extends StatefulWidget {
   final ValueChanged<int> onChanged;
 
-  const BottomBar({Key? key, required this.onChanged}) : super(key: key);
+   BottomBar({ required this.onChanged}) : super(key: bottomBarKey);
 
   @override
-  _BottomBarState createState() => _BottomBarState();
+  BottomBarState createState() => BottomBarState();
 }
 
-class _BottomBarState extends State<BottomBar> {
+class BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
 
   @override
@@ -162,5 +165,12 @@ class _BottomBarState extends State<BottomBar> {
         ),
       ),
     );
+  }
+
+  void navigateTo(int index){
+    setState(() {
+      _selectedIndex = index;
+      widget.onChanged(index);
+    });
   }
 }

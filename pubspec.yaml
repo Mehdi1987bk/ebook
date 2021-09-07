@@ -48,8 +48,9 @@ dependencies:
   flutter_downloader: 1.6.1
   webview_flutter: 2.0.12
   permission_handler: 8.1.4+2
-
-
+  cached_network_image: 3.1.0
+  url_launcher: 6.0.9
+  dotted_line: 3.0.0
 
 # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -102,11 +103,28 @@ flutter:
     - asset/bagraund_nbord.jpg
     - asset/union1.png
     - asset/union.png
-    - asset/riding-fill.png
     - asset/zakrebka.png
     - asset/navigate.png
     - asset/pen.png
     - asset/cart.png
+    - asset/u_export.png
+    - asset/service1.png
+    - asset/azn.png
+    - asset/fillials.png
+    - asset/kart.png
+    - asset/kuryerrr.png
+    - asset/poct.png
+    - asset/profilq.png
+    - asset/newss.png
+    - asset/tl.png
+    - asset/trafik.png
+    - asset/velo.svg
+    - asset/loqaut.png
+    - asset/melumat.png
+    - asset/vill.png
+    - asset/keya.png
+    - asset/aznblu.png
+    - asset/phone-fill.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
