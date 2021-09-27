@@ -26,11 +26,11 @@ class _SpleshScreenState extends State<SpleshScreen> {
             CupertinoPageRoute(builder: (BuildContext context) {
           return HomeScreen();
         }));
-      }else{
+      } else {
         Navigator.pushReplacement(context,
             CupertinoPageRoute(builder: (BuildContext context) {
-              return OnBoardingScreen();
-            }));
+          return OnBoardingScreen();
+        }));
       }
     });
   }

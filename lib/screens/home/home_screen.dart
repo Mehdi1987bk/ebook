@@ -2,17 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kango/generated/l10n.dart';
+import 'package:kango/presentation/common/user_details_home.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/home/tabs/declarations/declaration_tab_screen.dart';
-import 'package:kango/screens/home/tabs/faktura_add/factura_add.dart';
+import 'package:kango/screens/home/tabs/faktura_add/factura_add_item.dart';
 import 'package:kango/screens/home/tabs/home/home_tab_screen.dart';
-import 'package:kango/screens/home/tabs/menu/menu_drawer.dart';
 import 'package:kango/screens/home/tabs/setting/setting_screen.dart';
+import 'package:kango/screens/utils/menu_utils.dart';
 
 import 'bottom_bar.dart';
 import 'home_header.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+const Widget userInfo = UserDetails();
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -29,16 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       backgroundColor: AppColors.splBag,
-      drawer: Padding(
-        padding: const EdgeInsets.only(bottom: 20),
-        child: Container(
-          clipBehavior: Clip.antiAlias,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(bottomRight: Radius.circular(10))
-          ),
-            width: MediaQuery.of(context).size.width * 0.94,
-            child: Drawer(child: MenuDrawer())),
-      ),
+      drawer: MenuUtils(),
       key: scaffoldKey,
       body: Stack(
         children: [
@@ -57,89 +50,98 @@ class _HomeScreenState extends State<HomeScreen> {
             valueListenable: optionsNotifier,
             builder: (_, bool value, Widget? child) {
               if (value) {
-                return Container(
-                  padding: const EdgeInsets.only(bottom: 42),
-                  color: AppColors.buttonText.withOpacity(0.6),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: AppColors.man,
-                                  borderRadius: BorderRadius.circular(10)),
-                              width: 127,
-                              height: 50,
-                              child: Row(
-                                children: [
-                                  Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 11, right: 5),
-                                      child: Image.asset('asset/union.png')),
-                                  Text(
-                                    S.of(context).sifariVer,
-                                    style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
-                                        color: AppColors.onbording1),
-                                  )
-                                ],
+                return GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap:() => optionsNotifier.value = !optionsNotifier.value,
+                  child: Container(
+                    padding: const EdgeInsets.only(bottom: 42),
+                    color: AppColors.buttonText.withOpacity(0.6),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: AppColors.man,
+                                    borderRadius: BorderRadius.circular(10)),
+                                width: 127,
+                                height: 50,
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 11, right: 5),
+                                        child: Image.asset('asset/union.png')),
+                                    Text(
+                                      S.of(context).sifariVer,
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColors.onbording1),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          GestureDetector(
-                            onTap: () => showDialog(
-                                context: context, builder: (_) => FacturaAdd()),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: AppColors.man,
-                                  borderRadius: BorderRadius.circular(10)),
-                              width: 127,
-                              height: 50,
-                              child: Row(
-                                children: [
-                                  Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 11, right: 5),
-                                      child: Image.asset('asset/union1.png')),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 6, left: 5),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          S.of(context).fakturaLavEt,
-                                          style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w600,
-                                              color: AppColors.buttun_appbar),
-                                        ),
-                                        Text(
-                                          S.of(context).lavEt,
-                                          style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w600,
-                                              color: AppColors.buttun_appbar),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            GestureDetector(
+                              // onTap: () => showDialog(
+                              //     context: context, builder: (_) => InputTextd()),
+                              onTap: (){
+                                Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) {
+                                  return InputTextd();
+                                }));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: AppColors.man,
+                                    borderRadius: BorderRadius.circular(10)),
+                                width: 127,
+                                height: 50,
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 11, right: 5),
+                                        child: Image.asset('asset/union1.png')),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(top: 6, left: 5),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            S.of(context).fakturaLavEt,
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                                color: AppColors.buttun_appbar),
+                                          ),
+                                          Text(
+                                            S.of(context).lavEt,
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                                color: AppColors.buttun_appbar),
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      )
-                    ],
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               }
@@ -211,10 +213,6 @@ class __TabsState extends State<_Tabs> {
                 index: value,
                 children: _tabs,
               ),
-              // Navigator(
-              //   onGenerateRoute:(__) => CupertinoPageRoute(builder: (_)=> const SizedBox()),
-              //   key: navigatorKey,
-              // ),
             ],
           );
         });

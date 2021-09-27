@@ -125,6 +125,13 @@ flutter:
     - asset/keya.png
     - asset/aznblu.png
     - asset/phone-fill.png
+    - asset/data_d.png
+    - asset/vektor_23.png
+    - asset/dollar.png
+    - asset/sale_cv.png
+    - asset/raund1.png
+    - asset/raund2.png
+    - asset/mask.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

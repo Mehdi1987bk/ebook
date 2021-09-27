@@ -23,21 +23,29 @@ mixin ErrorDispatcher<Page extends BaseScreen, Bloc extends BaseBloc>
         .transform(ThrottleStreamTransformer<Object>(
             (_) => TimerStream<Object>(true, const Duration(seconds: 2))))
         .listen((error) {
-      if ( error is DioError && error.response?.statusCode == 404) {
-        // showSnackbar(
-        //   AppLocalizations
-        //       .of(context)
-        //       .thisContentIsNotAvailable,
-        // );
-        Future<void>.delayed(const Duration(seconds: 1))
-            .then((onValue) => Navigator.pop(context));
-      } else {
-        if(errorHandler == null){
-          showSnackbar(parseError(error, context));
-        }else{
-          if(errorHandler!.call(error)){
-            showSnackbar(parseError(error, context));
+      if (error.runtimeType == DioError &&
+          (error as DioError).response?.statusCode == 404) {
+        final responseBody = error.response?.data;
+        if (responseBody is Map) {
+          if (responseBody['error'] != null ) {
+            showSnackbar(responseBody['error']);
+            return ;
+          } else if (responseBody['errors'] != null) {
+            if ((responseBody['errors'] as Map).values.first is
+            List) {
+              showSnackbar(
+                  (responseBody['errors'] as Map).values.first.first);
+              return ;
+            }
           }
+        }
+        return;
+      }
+      if(errorHandler == null){
+        showSnackbar(parseError(error, context));
+      }else{
+        if(errorHandler!.call(error)){
+          showSnackbar(parseError(error, context));
         }
       }
     });

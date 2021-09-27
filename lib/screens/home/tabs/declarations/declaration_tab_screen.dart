@@ -39,12 +39,15 @@ class _DeclarationTabScreen
       slivers: [
         const SliverToBoxAdapter(),
         SliverToBoxAdapter(
-            child: UserDetailsDeclaration(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 28),
+              child: UserDetailsDeclaration(
           user: bloc.user,
-        )),
+        ),
+            )),
         SliverToBoxAdapter(
           child: Container(
-            margin: const EdgeInsets.only(top: 36,bottom: 33,left: 16,right: 16),
+            margin: const EdgeInsets.only(top: 31,bottom: 33,left: 16,right: 16),
             height: 1,
             color: AppColors.appColor,
           ),
@@ -79,7 +82,7 @@ class _DeclarationTabScreen
                         textAlign: TextAlign.start,
                         style: TextStyles.styleText3,
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Image.asset(
                         'asset/navigate.png',
                         width: 20,

@@ -9,6 +9,7 @@ abstract class CacheManager {
   Future<String?> getRefreshToken();
 
   Future<void> saveRefreshTokenTime(int expiresIn);
+  Future<void> clear();
 
   Future<int> getRefreshTokenTime();
 }

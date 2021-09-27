@@ -1,8 +1,10 @@
 import 'dart:io';
 
 import 'package:kango/data/network/api/order_api.dart';
+import 'package:kango/data/network/request/kuryer_request.dart';
 import 'package:kango/data/network/request/send_declarations.dart';
 import 'package:kango/domain/entities/declaration.dart';
+import 'package:kango/domain/entities/order_list.dart';
 import 'package:kango/domain/entities/pagination.dart';
 import 'package:kango/domain/repositories/auth_repository.dart';
 import 'package:kango/domain/repositories/order_repository.dart';
@@ -25,5 +27,19 @@ class DataOrderRepository implements OrderRepository {
     final token = await _authRepository.getToken();
     return _orderApi.sendDeclarations('Bearer $token',
         trackingNo: request.trackingNo, price: request.price, file: file);
+  }
+
+  @override
+  Future<String> kuryer(KuryerRequest request) async{
+    final token = await _authRepository.getToken();
+    final response = await _orderApi.kuryer(request, 'Bearer $token');
+    return response.success;
+  }
+
+  @override
+  Future< Pagination<OrderList>> getOrderList(int page) async{
+    final token = await _authRepository.getToken();
+    final response = await _orderApi.getOrderList('Bearer $token', page);
+    return response.courierOrders;
   }
 }

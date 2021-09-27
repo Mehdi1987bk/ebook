@@ -9,7 +9,7 @@ import 'package:kango/presentation/bloc/error_dispatcher.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/home/home_screen.dart';
 import 'package:kango/screens/login/reflesh_password/reflash_password_screen.dart';
-import 'package:kango/screens/login/reqistration/reqistration_screen.dart';
+import 'package:kango/screens/registration/registration_screen.dart';
 import 'package:kango/screens/utils/patterns.dart';
 
 import 'LoginBloc.dart';
@@ -193,7 +193,7 @@ class _LoginScreenState extends BaseState<LoginScreen, LoginBloc>
                   onTap: () {
                     Navigator.push(context,
                         CupertinoPageRoute(builder: (BuildContext context) {
-                      return ReqistrationScreen();
+                      return RegistrationScreen();
                     }));
                   },
                   child: Padding(
@@ -201,12 +201,17 @@ class _LoginScreenState extends BaseState<LoginScreen, LoginBloc>
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
-                          S.of(context).qeydiyyatdanKein,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) { return RegistrationScreen(); }));
+                          },
+                          child: Text(
+                            S.of(context).qeydiyyatdanKein,
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
                         )
                       ],
                     ),

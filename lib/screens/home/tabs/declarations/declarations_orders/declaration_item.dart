@@ -5,7 +5,7 @@ import 'package:kango/domain/entities/declaration.dart';
 import 'package:kango/domain/entities/order.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
-import 'package:kango/screens/home/tabs/faktura_add/factura_add.dart';
+import 'package:kango/screens/home/tabs/faktura_add/tests.dart';
 
 import 'order_dialog.dart';
 
@@ -74,7 +74,9 @@ class _ShortInfo extends StatelessWidget {
       fontWeight: FontWeight.w500,
       color: AppColors.bluyeAppasiti);
   final styleText5 = const TextStyle(
-      fontSize: 14, fontWeight: FontWeight.w500, color: AppColors.onbording1);
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+  );
 
   const _ShortInfo({Key? key, required this.declaration}) : super(key: key);
 
@@ -118,7 +120,22 @@ class _ShortInfo extends StatelessWidget {
                 style: styleText3,
               ),
               Text(
-                declaration.scStatus.toString(),
+                declaration.scStatusFront.toString(),
+                style: styleText5,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Row(
+            children: [
+              Text(
+                S.of(context).status,
+                style: styleText3,
+              ),
+              Text(
+                declaration.statusStr.toString(),
                 style: styleText5,
               ),
             ],
@@ -171,8 +188,14 @@ class OrderItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15, right: 15, bottom: 10),
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
-        onTap: () => { showDialog(
-        context: context, builder: (_) => OrderInfoDialog(order: order,))},
+        onTap: () => {
+          showDialog(
+              context: context,
+              builder: (_) => OrderInfoDialog(
+                    order: order,
+                    declaration: declaration,
+                  ))
+        },
         child: Column(
           children: [
             Container(
@@ -190,22 +213,39 @@ class OrderItem extends StatelessWidget {
                   style: styleText1,
                 ),
                 Text(
-                  declaration.ordersTotal.toString(),
+                  declaration.ordersTotal.toString() + " ",
                   style: styleText3,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 1.5),
+                  child: Image.asset(
+                    'asset/tl.png',
+                    width: 9,
+                  ),
                 ),
                 const Spacer(),
                 Container(
                   width: 125,
-                  child: Row(children: [
-                    Text(
-                      S.of(context).maaza,
-                      style: styleText1,
-                    ),
-                    Text(
-                      declaration.cargoWeight,
-                      style: styleText3,
-                    ),
-                  ]),
+                  child: Row(
+                    children: [
+                      Text(
+                        S.of(context).kargoQiymti,
+                        style: styleText1,
+                      ),
+                      Text(
+                        declaration.cargoTotal.toString() + " ",
+                        style: styleText3,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 0),
+                        child: Image.asset(
+                          'asset/dollar.png',
+                          width: 9,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),
@@ -220,7 +260,7 @@ class OrderItem extends StatelessWidget {
                   style: styleText1,
                 ),
                 Text(
-                  declaration.cargoWeight.toString(),
+                  order.quantity.toString(),
                   style: styleText3,
                 ),
                 const Spacer(),
@@ -232,7 +272,14 @@ class OrderItem extends StatelessWidget {
                       style: styleText1,
                     ),
                     Text(
-                      declaration.cargoTotal,
+                      declaration.cargoWeight,
+                      style: styleText3,
+                    ),
+                    SizedBox(
+                      width: 1,
+                    ),
+                    Text(
+                      S.of(context).kq,
                       style: styleText3,
                     ),
                   ]),
@@ -242,19 +289,12 @@ class OrderItem extends StatelessWidget {
             const SizedBox(
               height: 12,
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  S.of(context).kargoQiymti,
+            Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  S.of(context).maazae + ": " + order.shopName,
                   style: styleText1,
-                ),
-                Text(
-                  declaration.cargoWeight.toString(),
-                  style: styleText3,
-                ),
-              ],
-            ),
+                )),
             Container(
               margin: const EdgeInsets.only(bottom: 17, top: 20),
               height: 0.5,
@@ -272,15 +312,19 @@ class OrderItem extends StatelessWidget {
             Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  declaration.ordersTotalUsd,
+                  order.details,
                   style: styleText4,
                 )),
+            const SizedBox(
+              height: 5,
+            ),
             Container(
               margin: const EdgeInsets.only(bottom: 12, top: 13),
               height: 0.5,
               color: AppColors.appColor,
             ),
-            EditPaymentOrders(order: order,)
+            EditPaymentOrders(
+            )
           ],
         ),
       ),
@@ -289,12 +333,10 @@ class OrderItem extends StatelessWidget {
 }
 
 class EditPaymentOrders extends StatelessWidget {
-  final Order order;
 
   final styleText4 = const TextStyle(
       fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.onbording1);
 
-  const EditPaymentOrders({Key? key, required this.order}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -303,7 +345,7 @@ class EditPaymentOrders extends StatelessWidget {
         children: [
           GestureDetector(
             behavior: HitTestBehavior.translucent,
-            onTap: (){},
+            onTap: () {},
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image.asset(

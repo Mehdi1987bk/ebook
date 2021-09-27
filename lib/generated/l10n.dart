@@ -949,6 +949,426 @@ class S {
       args: [],
     );
   }
+
+  /// `Adınız`
+  String get adnz {
+    return Intl.message(
+      'Adınız',
+      name: 'adnz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Adınızı daxil edin`
+  String get adnzDaxilEdin {
+    return Intl.message(
+      'Adınızı daxil edin',
+      name: 'adnzDaxilEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Soyadınız`
+  String get soyadnz {
+    return Intl.message(
+      'Soyadınız',
+      name: 'soyadnz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Soyadınızı daxil edin`
+  String get soyadnzDaxilEdin {
+    return Intl.message(
+      'Soyadınızı daxil edin',
+      name: 'soyadnzDaxilEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doğum tarixiniz`
+  String get doumTarixiniz {
+    return Intl.message(
+      'Doğum tarixiniz',
+      name: 'doumTarixiniz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cinsiniz`
+  String get cinsiniz {
+    return Intl.message(
+      'Cinsiniz',
+      name: 'cinsiniz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email adresiniz`
+  String get emailAdresiniz {
+    return Intl.message(
+      'Email adresiniz',
+      name: 'emailAdresiniz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email adresinizi daxil edin`
+  String get emailAdresiniziDaxilEdin {
+    return Intl.message(
+      'Email adresinizi daxil edin',
+      name: 'emailAdresiniziDaxilEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doğum tarixinizi qeyd edin`
+  String get doumTarixiniziQeydEdin {
+    return Intl.message(
+      'Doğum tarixinizi qeyd edin',
+      name: 'doumTarixiniziQeydEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kişi`
+  String get kii {
+    return Intl.message(
+      'Kişi',
+      name: 'kii',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Qadın`
+  String get qadn {
+    return Intl.message(
+      'Qadın',
+      name: 'qadn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Faktura əlavə et`
+  String get fakturaLavEtcsa {
+    return Intl.message(
+      'Faktura əlavə et',
+      name: 'fakturaLavEtcsa',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kargo nömrəsi`
+  String get kargoNmrsi {
+    return Intl.message(
+      'Kargo nömrəsi',
+      name: 'kargoNmrsi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Təsdiq et`
+  String get tsdiqEt {
+    return Intl.message(
+      'Təsdiq et',
+      name: 'tsdiqEt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Təsdiqlə və sifariş et`
+  String get tsdiqlVSifariEt {
+    return Intl.message(
+      'Təsdiqlə və sifariş et',
+      name: 'tsdiqlVSifariEt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ana səhifə`
+  String get anaShif {
+    return Intl.message(
+      'Ana səhifə',
+      name: 'anaShif',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tariflərimiz -`
+  String get tariflrimiz {
+    return Intl.message(
+      'Tariflərimiz -',
+      name: 'tariflrimiz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Türkiyədən çatdırılma`
+  String get trkiydnAtdrlma {
+    return Intl.message(
+      'Türkiyədən çatdırılma',
+      name: 'trkiydnAtdrlma',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bakı və Sumqayıt şəhərləri üzrə`
+  String get bakVSumqaytHrlriZr {
+    return Intl.message(
+      'Bakı və Sumqayıt şəhərləri üzrə',
+      name: 'bakVSumqaytHrlriZr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gəncə, Mingəçevir və Lənkəran şəhərləri üzrə`
+  String get gncMingevirVLnkranHrlriZr {
+    return Intl.message(
+      'Gəncə, Mingəçevir və Lənkəran şəhərləri üzrə',
+      name: 'gncMingevirVLnkranHrlriZr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Standart çatdırılma və maye məhsulları üzrə`
+  String get standartAtdrlmaVMayeMhsullarZr {
+    return Intl.message(
+      'Standart çatdırılma və maye məhsulları üzrə',
+      name: 'standartAtdrlmaVMayeMhsullarZr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `HƏCMSƏL məhsullar üzrə`
+  String get hcmslMhsullarZr {
+    return Intl.message(
+      'HƏCMSƏL məhsullar üzrə',
+      name: 'hcmslMhsullarZr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Üç tərəfinin (en, uzunluğ, hündürlük) cəmi 1 metrdən çox olan bağlamalar həcmsəl çəki kimi hesablanır. Həcmsəl çəki = En x Uzunluğ x Hündürlük / 6000. Hazırda həcimsəl çəki hesablanmır.`
+  String get trfininEnUzunluHndrlkCmi1MetrdnOxOlanBalamalar {
+    return Intl.message(
+      'Üç tərəfinin (en, uzunluğ, hündürlük) cəmi 1 metrdən çox olan bağlamalar həcmsəl çəki kimi hesablanır. Həcmsəl çəki = En x Uzunluğ x Hündürlük / 6000. Hazırda həcimsəl çəki hesablanmır.',
+      name: 'trfininEnUzunluHndrlkCmi1MetrdnOxOlanBalamalar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `0 qr - 100 qr`
+  String get Qr100Qrc {
+    return Intl.message(
+      '0 qr - 100 qr',
+      name: 'Qr100Qrc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `101 qr - 250 qr`
+  String get Qr250Qr {
+    return Intl.message(
+      '101 qr - 250 qr',
+      name: 'Qr250Qr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `251 qr - 500 qr`
+  String get Qr500Qr {
+    return Intl.message(
+      '251 qr - 500 qr',
+      name: 'Qr500Qr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `501 qr - 1 kq`
+  String get Qr1Kq {
+    return Intl.message(
+      '501 qr - 1 kq',
+      name: 'Qr1Kq',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `1 kq üzərində`
+  String get KqZrind {
+    return Intl.message(
+      '1 kq üzərində',
+      name: 'KqZrind',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Təkrar şifrəniz`
+  String get tkrarIfrniz {
+    return Intl.message(
+      'Təkrar şifrəniz',
+      name: 'tkrarIfrniz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Təyin etdiyiniz giriş şifrəsini təkrar daxil edin`
+  String get tyinEtdiyinizGiriIfrsiniTkrarDaxilEdin {
+    return Intl.message(
+      'Təyin etdiyiniz giriş şifrəsini təkrar daxil edin',
+      name: 'tyinEtdiyinizGiriIfrsiniTkrarDaxilEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Şifrəniz`
+  String get ifrniz {
+    return Intl.message(
+      'Şifrəniz',
+      name: 'ifrniz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Giriş şifrənizi təyin edin`
+  String get giriIfrniziTyinEdin {
+    return Intl.message(
+      'Giriş şifrənizi təyin edin',
+      name: 'giriIfrniziTyinEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mobil nömrəniz`
+  String get mobilNmrniz {
+    return Intl.message(
+      'Mobil nömrəniz',
+      name: 'mobilNmrniz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cins`
+  String get cins {
+    return Intl.message(
+      'Cins',
+      name: 'cins',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mağaza`
+  String get maazae {
+    return Intl.message(
+      'Mağaza',
+      name: 'maazae',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `kq`
+  String get kq {
+    return Intl.message(
+      'kq',
+      name: 'kq',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mağaza`
+  String get maazavd {
+    return Intl.message(
+      'Mağaza',
+      name: 'maazavd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `tl`
+  String get tl {
+    return Intl.message(
+      'tl',
+      name: 'tl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bağlama:`
+  String get balama {
+    return Intl.message(
+      'Bağlama:',
+      name: 'balama',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ad, Soyad:`
+  String get adSoyad {
+    return Intl.message(
+      'Ad, Soyad:',
+      name: 'adSoyad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ünvan:`
+  String get nvan {
+    return Intl.message(
+      'Ünvan:',
+      name: 'nvan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Geri`
+  String get geri {
+    return Intl.message(
+      'Geri',
+      name: 'geri',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

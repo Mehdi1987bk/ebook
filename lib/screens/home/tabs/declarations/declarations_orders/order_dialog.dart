@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:kango/domain/entities/declaration.dart';
 import 'package:kango/domain/entities/order.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
@@ -14,8 +15,13 @@ void downloadCallback(String id, DownloadTaskStatus status, int progress) {}
 
 class OrderInfoDialog extends StatefulWidget {
   final Order order;
+  final Declaration declaration;
 
-  const OrderInfoDialog({Key? key, required this.order}) : super(key: key);
+  const OrderInfoDialog({
+    Key? key,
+    required this.order,
+    required this.declaration,
+  }) : super(key: key);
 
   @override
   _OrderInfoDialogState createState() => _OrderInfoDialogState();
@@ -63,50 +69,76 @@ class _OrderInfoDialogState extends State<OrderInfoDialog> {
           ),
           _DialogItem(
             title: S.of(context).kod,
-            value: widget.order.price,
+            value: widget.declaration.fullCode,
           ),
           _DialogItem(
-            title: S.of(context).maaza,
-            value: widget.order.price,
+            title: S.of(context).maazavd,
+            value: widget.order.shopName,
           ),
-          _DialogItem(
-            title: S.of(context).fakturaQiymti,
-            value: widget.order.price,
+          Container(
+            width: MediaQuery.of(context).size.width / 0.3,
+            padding: const EdgeInsets.only(left: 16, bottom: 5, right: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(S.of(context).fakturaQiymti, style: TextStyles.styleText6),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      widget.declaration.ordersTotal.toString(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 1.5,left: 2),
+                      child: Image.asset('asset/tl.png',width: 9,),
+                    ),
+                  ],
+                ),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 15, top: 12),
+                  height: 1,
+                  color: Colors.grey.withOpacity(0.8),
+                ),
+              ],
+            ),
           ),
           _DialogItem(
             title: S.of(context).kargoTakipNo,
-            value: widget.order.price,
+            value: widget.order.trackingCode,
           ),
           _DialogItem(
             title: S.of(context).ki,
-            value: widget.order.price,
+            value: '${widget.declaration.cargoWeight} ${S.of(context).kq}',
           ),
           _DialogItem(
             title: S.of(context).atdrlma,
-            value: widget.order.price,
+            value: widget.declaration.cargoTotal,
           ),
           _DialogItem(
             title: S.of(context).statuss,
-            value: widget.order.price,
+            value: widget.declaration.statusStr,
           ),
           _DialogItem(
             title: S.of(context).scStatuss,
-            value: widget.order.price,
+            value: widget.declaration.scStatusFront,
           ),
           _DialogItem(
             title: S.of(context).qeyd,
-            value: widget.order.price,
+            value: widget.order.details,
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 15, left: 15),
             child: Text(S.of(context).faktura, style: TextStyles.styleText6),
           ),
           const _FileItem(
-            url: 'https://unsplash.com/photos/XT9iDcKESjE/download?force=true',
+            //Todo Foto downlide
+            url: "widget.orderPhotos.photo",
           ),
           _DialogItem(
             title: S.of(context).mhsulunSay,
-            value: widget.order.price,
+            value: widget.order.quantity.toString(),
           ),
           _DialogItem(
             title: S.of(context).lavXidmtlr,

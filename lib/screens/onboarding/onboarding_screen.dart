@@ -82,7 +82,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             child: FloatingActionButton(
               onPressed: () {
                 if(_controller.page == 2){
-                  Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) => LoginScreen()));
+                  Navigator.pushReplacement(context, CupertinoPageRoute(builder: (BuildContext context) => LoginScreen()));
                 }else{
                 _controller.nextPage(curve: Curves.ease, duration: const Duration(milliseconds: 350));}
               },

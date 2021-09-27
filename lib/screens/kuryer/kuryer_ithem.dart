@@ -1,35 +1,45 @@
+import 'package:dio/dio.dart';
 import 'package:dotted_line/dotted_line.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kango/domain/entities/user_details.dart';
 import 'package:kango/domain/repositories/user_repository.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/bloc/base_screen.dart';
+import 'package:kango/presentation/bloc/error_dispatcher.dart';
 import 'package:kango/presentation/common/user_details_declaration.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
-import 'package:kango/screens/home/tabs/home/home_tab_bloc.dart';
+import 'package:kango/screens/home/home_screen.dart';
 import 'package:kango/screens/kuryer/kuryer_bloc.dart';
+import 'package:kango/screens/utils/patterns.dart';
 import 'package:kango/screens/utils/text_style.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../main.dart';
+import 'kuryer_list/kuryer_list.dart';
+import 'kuryer_list/kuryer_list_screen.dart';
 
-class KuryerItem extends BaseScreen {
+class KuryerItemScreen extends BaseScreen {
   @override
   _HomeTabState createState() => _HomeTabState();
 }
 
-class _HomeTabState extends BaseState<KuryerItem, KuryerBloc> {
+class _HomeTabState extends BaseState<KuryerItemScreen, KuryerBloc>
+    with ErrorDispatcher {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   final PublishSubject<User> user = PublishSubject();
 
   final UserRepository _userRepository = sl.get<UserRepository>();
+  final TextEditingController _kurController = TextEditingController();
+  final ValueNotifier<bool> _valueNotifier = ValueNotifier(false);
 
   @override
   void initState() {
     super.initState();
     _userRepository.getUserDetails().then(user.add);
+    _kurController.addListener(_validate);
   }
 
   @override
@@ -38,29 +48,57 @@ class _HomeTabState extends BaseState<KuryerItem, KuryerBloc> {
       color: AppColors.splBag,
       child: ListView(
         children: [
+          SimpleDialogOption(
+            padding: EdgeInsets.only(bottom: 0,top: 0,left: 20),
+            onPressed: () {
+              Navigator.pop(
+                context,
+              );
+            },
+            child: Row(
+              children: [
+                Image.asset("asset/vektor_23.png"),
+                const SizedBox(
+                  width: 18,
+                ),
+                Text(S.of(context).anaShif,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600))
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 10,bottom: 10,left: 16,right: 16),
+            height: 1,
+            color: AppColors.appColor,
+          ),
           Row(
             children: [
               UserDetailsDeclaration(user: user),
               const Spacer(),
-              Container(
-                  padding: const EdgeInsets.only(
-                      left: 20, right: 20, bottom: 8, top: 8),
-                  margin: const EdgeInsets.only(right: 16),
-                  decoration: const BoxDecoration(
-                      color: AppColors.appColor,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Column(
-                    children: [
-                      Text(
-                        S.of(context).kuryerSifarii,
-                        style: TextStyles.styleText13,
-                      ),
-                      Text(
-                        S.of(context).tarixsi,
-                        style: TextStyles.styleText13,
-                      ),
-                    ],
-                  ))
+              GestureDetector(
+                child: Container(
+                    padding: const EdgeInsets.only(
+                        left: 20, right: 20, bottom: 8, top: 8),
+                    margin: const EdgeInsets.only(right: 16),
+                    decoration: const BoxDecoration(
+                        color: AppColors.appColor,
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: Column(
+                      children: [
+                        Text(
+                          S.of(context).kuryerSifarii,
+                          style: TextStyles.styleText13,
+                        ),
+                        Text(
+                          S.of(context).tarixsi,
+                          style: TextStyles.styleText13,
+                        ),
+                      ],
+                    )),
+                onTap: (){
+                  Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) { return KueyerList(); }));
+                }
+              )
             ],
           ),
           Container(
@@ -110,10 +148,25 @@ class _HomeTabState extends BaseState<KuryerItem, KuryerBloc> {
                 Row(
                   children: [
                     Text(S.of(context).bakHrDaxili),
-                    const Spacer(),
+                    const Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: DottedLine(
+                          direction: Axis.horizontal,
+                          lineLength: double.infinity,
+                          lineThickness: 1.0,
+                          dashLength: 4.0,
+                          dashColor: Colors.black,
+                          dashRadius: 0.0,
+                          dashGapLength: 4.0,
+                          dashGapColor: Colors.transparent,
+                          dashGapRadius: 0.0,
+                        ),
+                      ),
+                    ),
                     const Text(
                       '3',
-                      style: TextStyles.styleText11,
+                      style: TextStyles.styleText15,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 2, top: 2),
@@ -130,16 +183,25 @@ class _HomeTabState extends BaseState<KuryerItem, KuryerBloc> {
                 Row(
                   children: [
                     Text(S.of(context).bakKndlri),
-                    Expanded(
-                      child: DottedLine(
-                        dashLength: 30,
-                        dashGapLength: 30,
-                        lineThickness: 30,
+                    const Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: DottedLine(
+                          direction: Axis.horizontal,
+                          lineLength: double.infinity,
+                          lineThickness: 1.0,
+                          dashLength: 4.0,
+                          dashColor: Colors.black,
+                          dashRadius: 0.0,
+                          dashGapLength: 4.0,
+                          dashGapColor: Colors.transparent,
+                          dashGapRadius: 0.0,
+                        ),
                       ),
                     ),
                     const Text(
                       '5',
-                      style: TextStyles.styleText11,
+                      style: TextStyles.styleText15,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 2, top: 2),
@@ -150,7 +212,6 @@ class _HomeTabState extends BaseState<KuryerItem, KuryerBloc> {
                     )
                   ],
                 ),
-
               ],
             ),
           ),
@@ -229,6 +290,7 @@ class _HomeTabState extends BaseState<KuryerItem, KuryerBloc> {
                   child: SizedBox(
                     height: 140.0,
                     child: TextField(
+                      controller: _kurController,
                       maxLines: 140,
                       decoration: InputDecoration(
                         hintStyle: const TextStyle(color: AppColors.buttonText),
@@ -255,18 +317,22 @@ class _HomeTabState extends BaseState<KuryerItem, KuryerBloc> {
               right: 18,
             ),
             margin: const EdgeInsets.only(top: 30, bottom: 68),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: AppColors.appColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  textStyle: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  )),
-              onPressed: () {},
-              child: Text(S.of(context).yaddaSaxla),
+            child: ValueListenableBuilder<bool>(
+              valueListenable: _valueNotifier,
+              builder: (_, value, __) {
+                return ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: AppColors.appColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        textStyle: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    onPressed: value ? _kur : null,
+                    child: Text(S.of(context).tsdiqlVSifariEt));
+              },
             ),
           ),
         ],
@@ -274,10 +340,23 @@ class _HomeTabState extends BaseState<KuryerItem, KuryerBloc> {
     );
   }
 
+  void _validate() {
+    var isValid = Patterns.textField.hasMatch(_kurController.text.trim());
+    _valueNotifier.value = isValid;
+  }
+
+  _kur() {
+    final address = _kurController.text;
+    bloc.kuryer(address).then((value) => Navigator.pushReplacement(context,
+        CupertinoPageRoute(builder: (BuildContext context) => HomeScreen())));
+  }
+
   @override
   KuryerBloc provideBloc() {
     return KuryerBloc();
   }
+
+
 }
 
 void calNumber(command) async {

@@ -16,4 +16,5 @@ class AppColors {
   static const Color bluyeAppasiti = Color.fromRGBO(64, 191, 240, 1);
   static const Color buttun_appbar = Color.fromRGBO(79, 88, 241, 1);
   static const Color borderPayment = Color.fromRGBO(40, 33, 65, 1);
+  static const Color traficButtonBorder = Color(0xff282141);
 }

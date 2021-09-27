@@ -46,5 +46,11 @@ class DataCacheManager implements CacheManager {
     return box.put(_refreshTokenTime,DateTime.now().millisecondsSinceEpoch + expiresIn);
   }
 
+  @override
+  Future<void> clear() async{
+    final box = await authBox;
+    await box.clear();
+  }
+
 
 }

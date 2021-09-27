@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kango/domain/entities/gender.dart';
 part 'user_details.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
@@ -36,7 +37,7 @@ class User {
   final String passportNumber;
   final String passportFin;
   final String hasPhoto;
-  final String gender;
+  final Gender gender;
   final String birthday;
   final String locale;
   final String address;

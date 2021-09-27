@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart' hide Headers;
 import 'package:kango/data/network/request/login_request.dart';
+import 'package:kango/data/network/request/registration_reguest.dart';
 import 'package:kango/data/network/response/login_response.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -17,4 +18,10 @@ abstract class AuthApi {
 
   @POST('oauth/token')
   Future<LoginResponse> login(@Body() LoginRequest request);
+
+  @POST('api/v1.0/mobile/auth/signup')
+  Future<void> register(@Body() RegistrationRequest request);
+
+  @POST('api/v1.0/mobile/user/logout')
+  Future<void> logout( @Header('Authorization') String token);
 }

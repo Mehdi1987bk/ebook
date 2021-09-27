@@ -9,7 +9,7 @@ class Patterns {
   static final RegExp password = RegExp(r'^.{6,50}$');
   static final RegExp userName = RegExp(r'^.{2,50}$');
   static final RegExp cityName = RegExp(r'^.{2,254}');
-  static final RegExp phone = RegExp(r'^.{7,50}$');
+  static final RegExp phone = RegExp(r'^.{7}$');
   static final RegExp codeVerificationWhiteList = RegExp(r"^\S{0,8}");
   static final RegExp questionWhiteList = RegExp(r"^.{0,200}");
   static final RegExp voteWhiteList = RegExp(r"^.{0,100}");

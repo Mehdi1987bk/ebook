@@ -47,9 +47,9 @@ abstract class BaseState<T extends BaseScreen, Bloc extends BaseBloc>
   }
 
   Widget _buildBody() {
-    if (useWillPop) {
+    if (onWillPop != null) {
       return WillPopScope(
-        onWillPop: () => Future.value(false),
+        onWillPop: onWillPop,
         child: _mainBody(),
       );
     } else
@@ -116,7 +116,7 @@ abstract class BaseState<T extends BaseScreen, Bloc extends BaseBloc>
 
   bool get showProgressIndicator => true;
 
-  bool get useWillPop => false;
+  final WillPopCallback? onWillPop = null;
 
   @override
   bool get wantKeepAlive => false;

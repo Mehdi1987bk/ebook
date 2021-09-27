@@ -7,6 +7,8 @@ import 'package:kango/presentation/bloc/base_screen.dart';
 import 'package:kango/presentation/common/user_details_declaration.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/home/tabs/home/payment/payment_home.dart';
+import 'package:kango/screens/kuryer/kuryer_screen.dart';
+import 'package:kango/screens/trafik/trafik_screen.dart';
 import 'package:kango/screens/utils/text_style.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -20,6 +22,7 @@ class MenuDrawer extends BaseScreen {
 
 class _MenuDrawerState extends BaseState<MenuDrawer, DeclarationBloc> {
   final PublishSubject<User> user = PublishSubject();
+
 
   @override
   Widget body() {
@@ -79,17 +82,23 @@ class _MenuDrawerState extends BaseState<MenuDrawer, DeclarationBloc> {
             text: S.of(context).xsiKabinet,
           ),
         ),
-        MenuItem(
-          icon: 'asset/kuryerrr.png',
-          text: S.of(context).kuryerSifarii,
+        GestureDetector(
+          onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) { return KuryerScreen(); })),
+          child: MenuItem(
+            icon: 'asset/kuryerrr.png',
+            text: S.of(context).kuryerSifarii,
+          ),
         ),
         MenuItem(
           icon: 'asset/kart.png',
           text: S.of(context).onlaynDamaHaqqDnii,
         ),
-        MenuItem(
-          icon: 'asset/trafik.png',
-          text: S.of(context).tariflr,
+        GestureDetector(
+          onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) { return TrafikScreen(); })),
+          child: MenuItem(
+            icon: 'asset/trafik.png',
+            text: S.of(context).tariflr,
+          ),
         ),
         MenuItem(
           icon: 'asset/newss.png',
