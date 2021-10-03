@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kango/domain/entities/gender.dart';
 import 'package:kango/generated/l10n.dart';
-import 'package:kango/presentation/bloc/bloc_provider.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/registration/registration_bloc.dart';
 import 'package:kango/screens/utils/patterns.dart';
@@ -23,8 +22,8 @@ class StepOne extends StatefulWidget {
   _StepOneState createState() => _StepOneState();
 }
 
-class _StepOneState extends State<StepOne> {
-  final ValueNotifier<bool> _valueNotifier = ValueNotifier(true);
+class _StepOneState extends State<StepOne>  with AutomaticKeepAliveClientMixin{
+  final ValueNotifier<bool> _valueNotifier = ValueNotifier(false);
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _dateTimeController = TextEditingController();
@@ -32,6 +31,7 @@ class _StepOneState extends State<StepOne> {
   final dateFormat = DateFormat('yyyy-MM-dd');
   final firstDate = DateTime(1960, 1);
   final lastDate = DateTime.now();
+
 
   RegistrationBloc get _bloc => widget.bloc;
 
@@ -60,6 +60,7 @@ class _StepOneState extends State<StepOne> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return ListView(
       physics: const NeverScrollableScrollPhysics(),
       children: [
@@ -261,6 +262,9 @@ class _StepOneState extends State<StepOne> {
         _bloc.firstPageInfo.gender != null;
     _valueNotifier.value = isValid;
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 class GenderSelector extends StatefulWidget {

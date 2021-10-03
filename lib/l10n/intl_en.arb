@@ -130,5 +130,11 @@
   "balama": "Bağlama:",
   "adSoyad": "Ad, Soyad:",
   "nvan": "Ünvan:",
-  "geri": "Geri"
+  "geri": "Geri",
+  "xsiyytVsiqsininSeriyaNmrsi": "Şəxsiyyət vəsiqəsinin seriya nömrəsi",
+  "xsiyytVsiqsininFnKodu": "Şəxsiyyət vəsiqəsinin FİN kodu",
+  "filialSein": "Filial seçin",
+  "vNinSeriyaNmrsi": "Ş.V. -nin seriya nömrəsi",
+  "nvannzDaxilEdin": "Ünvanınızı daxil edin",
+  "daxilEtdiyini": "Daxil etdiyiniz e-mail ünvana növbəti addım haqqında məktub göndərildi!"
 }

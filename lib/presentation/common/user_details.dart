@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:kango/domain/entities/gender.dart';
 import 'package:kango/domain/entities/user_details.dart';
 import 'package:kango/domain/repositories/user_repository.dart';
-import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -18,14 +17,16 @@ class UserDetails extends StatefulWidget {
 }
 
 class _UserDetailsState extends State<UserDetails> {
-   final PublishSubject<User> user = PublishSubject();
+   late final Stream<User> user ;
    final UserRepository _userRepository = sl.get<UserRepository>();
 
   @override
   void initState() {
     super.initState();
-    _userRepository.getUserDetails().then(user.add);
+    user = _userRepository.getLocalUser();
   }
+
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User>(
@@ -39,6 +40,7 @@ class _UserDetailsState extends State<UserDetails> {
     );
   }
 }
+
 
 class UserInfo extends StatelessWidget {
   final User user;
@@ -68,15 +70,15 @@ class UserInfo extends StatelessWidget {
                       border: Border.all(color: AppColors.appColor)),
                   child: user.gender == Gender.female
                       ? Image.asset(
-                          'asset/man.png',
-                          height: 54,
-                          width: 54,
-                        )
+                    'asset/man.png',
+                    height: 54,
+                    width: 54,
+                  )
                       : Image.asset(
-                          'asset/mask.png',
-                          height: 54,
-                          width: 54,
-                        ),
+                    'asset/mask.png',
+                    height: 54,
+                    width: 54,
+                  ),
                 ),
               ),
               Column(
@@ -115,34 +117,6 @@ class UserInfo extends StatelessWidget {
               )
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 23, left: 16, right: 41),
-            child: Wrap(
-              children: [
-                Column(
-                  children: [
-                    RichText(
-                        text: TextSpan(
-                            style: DefaultTextStyle.of(context).style,
-                            children: [
-                          TextSpan(text: S.of(context).salam, style: styleText),
-                          TextSpan(
-                              text: " " + user.firstName + " ",
-                              style: styleText2),
-                          TextSpan(
-                              text: S.of(context).buGnSizXoAlverilrArzuEdirik,
-                              style: styleText),
-                        ])),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 40, bottom: 33, left: 16, right: 16),
-            height: 1,
-            color: AppColors.appColor,
-          )
         ],
       ),
     );

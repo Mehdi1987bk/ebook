@@ -1,24 +1,18 @@
-import 'package:dio/dio.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kango/domain/entities/user_details.dart';
-import 'package:kango/domain/repositories/user_repository.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/bloc/base_screen.dart';
 import 'package:kango/presentation/bloc/error_dispatcher.dart';
-import 'package:kango/presentation/common/user_details_declaration.dart';
+import 'package:kango/presentation/common/user_details.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/home/home_screen.dart';
 import 'package:kango/screens/kuryer/kuryer_bloc.dart';
 import 'package:kango/screens/utils/patterns.dart';
 import 'package:kango/screens/utils/text_style.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../main.dart';
 import 'kuryer_list/kuryer_list.dart';
-import 'kuryer_list/kuryer_list_screen.dart';
 
 class KuryerItemScreen extends BaseScreen {
   @override
@@ -28,17 +22,12 @@ class KuryerItemScreen extends BaseScreen {
 class _HomeTabState extends BaseState<KuryerItemScreen, KuryerBloc>
     with ErrorDispatcher {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final PublishSubject<User> user = PublishSubject();
-
-  final UserRepository _userRepository = sl.get<UserRepository>();
   final TextEditingController _kurController = TextEditingController();
   final ValueNotifier<bool> _valueNotifier = ValueNotifier(false);
 
   @override
   void initState() {
     super.initState();
-    _userRepository.getUserDetails().then(user.add);
     _kurController.addListener(_validate);
   }
 
@@ -73,7 +62,7 @@ class _HomeTabState extends BaseState<KuryerItemScreen, KuryerBloc>
           ),
           Row(
             children: [
-              UserDetailsDeclaration(user: user),
+              UserDetails(),
               const Spacer(),
               GestureDetector(
                 child: Container(

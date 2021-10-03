@@ -5,6 +5,7 @@ import 'package:kango/data/network/request/kuryer_request.dart';
 import 'package:kango/data/network/response/declaration_order_response.dart';
 import 'package:kango/data/network/response/get_order_list_response.dart';
 import 'package:kango/data/network/response/kuryer_response.dart';
+import 'package:kango/domain/entities/contact.dart';
 
 import 'package:retrofit/retrofit.dart';
 
@@ -20,7 +21,7 @@ abstract class OrderApi {
   Future<GetSubscribedListResponse> getDeclarations(
       @Header('Authorization') String token, @Query('page') int page);
 
-  @POST('api/v1.0/mobile/profile/declarations/short-declarations/update/30305')
+  @POST('api/v1.0/mobile/profile/declarations/short-declarations/update')
   @Headers(<String, String>{"content-type": "multipart/form-data"})
   Future<void> sendDeclarations(@Header('Authorization') String token,
       {@Part(name: "tracking_no") required String trackingNo,
@@ -33,4 +34,10 @@ abstract class OrderApi {
   @GET('api/v1.0/mobile/profile/courier')
   Future<GetOrderListResponse> getOrderList(
       @Header('Authorization') String token, @Query('page') int page );
+
+
+  @GET('api/v1.0/mobile/contact/')
+  Future<List<Contact>> getContactList();
+
+
 }

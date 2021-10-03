@@ -54,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "chooseImage": MessageLookupByLibrary.simpleMessage("Choose Image"),
         "cins": MessageLookupByLibrary.simpleMessage("Cins"),
         "cinsiniz": MessageLookupByLibrary.simpleMessage("Cinsiniz"),
+        "daxilEtdiyini": MessageLookupByLibrary.simpleMessage(
+            "Daxil etdiyiniz e-mail ünvana növbəti addım haqqında məktub göndərildi!"),
         "digrBlmlr": MessageLookupByLibrary.simpleMessage("DIgər bölmələr"),
         "dm": MessageLookupByLibrary.simpleMessage("Ödəmə"),
         "dniEdin": MessageLookupByLibrary.simpleMessage("Ödəniş edin"),
@@ -80,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Faktura əlavə et"),
         "fakturaQiymti":
             MessageLookupByLibrary.simpleMessage("Faktura qiyməti"),
+        "filialSein": MessageLookupByLibrary.simpleMessage("Filial seçin"),
         "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "geri": MessageLookupByLibrary.simpleMessage("Geri"),
         "giriEt": MessageLookupByLibrary.simpleMessage("Giriş et"),
@@ -139,6 +142,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noInternetConnection":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
         "nvan": MessageLookupByLibrary.simpleMessage("Ünvan:"),
+        "nvannzDaxilEdin":
+            MessageLookupByLibrary.simpleMessage("Ünvanınızı daxil edin"),
         "nvannzQeydEdin":
             MessageLookupByLibrary.simpleMessage("Ünvanınızı qeyd edin"),
         "oluxBtnHquqlarQorunur": MessageLookupByLibrary.simpleMessage(
@@ -194,6 +199,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tyinEtdiyinizGiriIfrsiniTkrarDaxilEdin":
             MessageLookupByLibrary.simpleMessage(
                 "Təyin etdiyiniz giriş şifrəsini təkrar daxil edin"),
+        "vNinSeriyaNmrsi":
+            MessageLookupByLibrary.simpleMessage("Ş.V. -nin seriya nömrəsi"),
         "xEt": MessageLookupByLibrary.simpleMessage("Çıxış et"),
         "xariciNvanlarm":
             MessageLookupByLibrary.simpleMessage("Xarici ünvanlarım"),
@@ -202,6 +209,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "xsiKabinet": MessageLookupByLibrary.simpleMessage("Şəxsi kabinet"),
         "xsiMlumatlarm":
             MessageLookupByLibrary.simpleMessage("Şəxsi məlumatlarım"),
+        "xsiyytVsiqsininFnKodu": MessageLookupByLibrary.simpleMessage(
+            "Şəxsiyyət vəsiqəsinin FİN kodu"),
+        "xsiyytVsiqsininSeriyaNmrsi": MessageLookupByLibrary.simpleMessage(
+            "Şəxsiyyət vəsiqəsinin seriya nömrəsi"),
         "yaddaSaxla": MessageLookupByLibrary.simpleMessage("Yadda saxla")
       };
 }

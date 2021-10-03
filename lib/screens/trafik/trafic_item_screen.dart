@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:kango/domain/entities/user_details.dart';
 import 'package:kango/domain/repositories/user_repository.dart';
 import 'package:kango/generated/l10n.dart';
-import 'package:kango/presentation/bloc/base_screen.dart';
 import 'package:kango/presentation/common/trafic_widget.dart';
-import 'package:kango/presentation/common/user_details_declaration.dart';
+import 'package:kango/presentation/common/user_details.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
-import 'package:kango/screens/trafik/tab_bar_buttons.dart';
+import 'package:kango/screens/home/home_screen.dart';
 import 'package:kango/screens/trafik/tabs/tabs_one_screen.dart';
 import 'package:kango/screens/trafik/tabs/tabs_tow_screen.dart';
-import 'package:kango/screens/utils/text_style.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../main.dart';
@@ -42,7 +40,7 @@ class _TraficItemState extends State<TraficItem>
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: SimpleDialogOption(
-              padding: EdgeInsets.only(bottom: 0,top: 0,left: 20),
+              padding: const EdgeInsets.only(bottom: 0,top: 0,left: 20),
               onPressed: () {
                 Navigator.pop(
                   context,
@@ -50,22 +48,22 @@ class _TraficItemState extends State<TraficItem>
               },
               child: Row(
                 children: [
-                  Image.asset("asset/vektor_23.png"),
+                  Image.asset('asset/vektor_23.png'),
                   const SizedBox(
                     width: 18,
                   ),
                   Text(S.of(context).geri,
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600))
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600))
                 ],
               ),
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 10,bottom: 10,left: 16,right: 16),
+            margin: const EdgeInsets.only(top: 10,bottom: 10,left: 16,right: 16),
             height: 1,
             color: AppColors.appColor,
           ),
-          UserDetailsDeclaration(user: user),
+          UserDetails(),
           Container(
             margin:
                 const EdgeInsets.only(top: 31, bottom: 30, left: 16, right: 16),

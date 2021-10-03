@@ -21,8 +21,9 @@ class LoginScreen extends BaseScreen {
 
 class _LoginScreenState extends BaseState<LoginScreen, LoginBloc>
     with ErrorDispatcher {
-  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+final TextEditingController _emailController = TextEditingController();
   final ValueNotifier<bool> _valueNotifier = ValueNotifier(false);
 
   @override
@@ -233,10 +234,24 @@ class _LoginScreenState extends BaseState<LoginScreen, LoginBloc>
 
   @override
   ErrorHandler get errorHandler => (error) {
-    if(error.runtimeType == DioError && (error as DioError).response?.statusCode == 401){
-      showSnackbar("Login error");
-      return false;
-    }return true;
+    if (error.runtimeType == DioError &&
+        (error as DioError).response?.statusCode == 404) {
+      final responseBody = error.response?.data;
+      if (responseBody is Map) {
+        if (responseBody['error'] != null ) {
+          showSnackbar(responseBody['error']);
+          return false;
+        } else if (responseBody['errors'] != null) {
+          if ((responseBody['errors'] as Map).values.first is
+          List) {
+            showSnackbar(
+                (responseBody['errors'] as Map).values.first.first);
+            return false;
+          }
+        }
+      }
+
+    }      return true;
 
   };
 

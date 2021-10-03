@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kango/domain/entities/user_details.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/bloc/base_screen.dart';
+import 'package:kango/presentation/common/user_details.dart';
 
-import 'package:kango/presentation/common/user_details_declaration.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/home/tabs/home/payment/payment_home.dart';
 import 'package:kango/screens/kuryer/kuryer_screen.dart';
 import 'package:kango/screens/trafik/trafik_screen.dart';
 import 'package:kango/screens/utils/text_style.dart';
-import 'package:rxdart/rxdart.dart';
 
 import '../../bottom_bar.dart';
+import '../../home_screen.dart';
 import 'menu_drawer_bloc.dart';
 
 class MenuDrawer extends BaseScreen {
@@ -21,7 +20,6 @@ class MenuDrawer extends BaseScreen {
 }
 
 class _MenuDrawerState extends BaseState<MenuDrawer, DeclarationBloc> {
-  final PublishSubject<User> user = PublishSubject();
 
 
   @override
@@ -32,9 +30,7 @@ class _MenuDrawerState extends BaseState<MenuDrawer, DeclarationBloc> {
           padding: const EdgeInsets.only(top: 25),
           child: Row(
             children: [
-              UserDetailsDeclaration(
-                user: bloc.user,
-              ),
+              UserDetails(),
               const Spacer(),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),

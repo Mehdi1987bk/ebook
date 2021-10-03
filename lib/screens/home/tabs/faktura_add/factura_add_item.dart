@@ -5,21 +5,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kango/data/network/request/send_declarations.dart';
-import 'package:kango/domain/entities/user_details.dart';
 import 'package:kango/domain/repositories/order_repository.dart';
-import 'package:kango/domain/repositories/user_repository.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/main.dart';
-import 'package:kango/presentation/common/user_details_declaration.dart';
+import 'package:kango/presentation/common/user_details.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
-import 'package:kango/screens/home/tabs/menu/menu_drawer.dart';
 import 'package:kango/screens/utils/demical_number_validator.dart';
 import 'package:kango/screens/utils/menu_utils.dart';
 import 'package:kango/screens/utils/patterns.dart';
 import 'package:kango/screens/utils/text_style.dart';
-import 'package:rxdart/rxdart.dart';
 
 import '../../home_header.dart';
+import '../../home_screen.dart';
 
 class InputTextd extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -59,8 +56,6 @@ class _FactureItemState extends State<FactureItem> {
   final TextEditingController _kodFacturaController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
   final ValueNotifier<bool> _valueNotifier = ValueNotifier(false);
-  final UserRepository _userRepository = sl.get<UserRepository>();
-  final PublishSubject<User> user = PublishSubject();
   FileType _pickingType = FileType.any;
   final List<File> _paths = [];
 
@@ -69,7 +64,6 @@ class _FactureItemState extends State<FactureItem> {
     super.initState();
     _kodFacturaController.addListener(_validate);
     _priceController.addListener(_validate);
-    _userRepository.getUserDetails().then(user.add);
   }
 
   @override
@@ -101,7 +95,7 @@ class _FactureItemState extends State<FactureItem> {
             height: 1,
             color: AppColors.appColor,
           ),
-          UserDetailsDeclaration(user: user),
+          UserDetails(),
           Container(
             margin: EdgeInsets.only(top: 27,bottom: 30,left: 16,right: 16),
             height: 1,

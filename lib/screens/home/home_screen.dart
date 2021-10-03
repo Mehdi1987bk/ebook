@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:kango/domain/repositories/user_repository.dart';
 import 'package:kango/generated/l10n.dart';
-import 'package:kango/presentation/common/user_details_home.dart';
+import 'package:kango/main.dart';
+import 'package:kango/presentation/common/user_details.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/home/tabs/declarations/declaration_tab_screen.dart';
 import 'package:kango/screens/home/tabs/faktura_add/factura_add_item.dart';
@@ -14,7 +16,6 @@ import 'bottom_bar.dart';
 import 'home_header.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-const Widget userInfo = UserDetails();
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -25,6 +26,13 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final ValueNotifier<int> notifier = ValueNotifier(0);
   final ValueNotifier<bool> optionsNotifier = ValueNotifier(false);
+
+
+  @override
+  void initState() {
+    super.initState();
+    sl.get<UserRepository>().updateLocalUser();
+  }
 
   @override
   Widget build(BuildContext context) {

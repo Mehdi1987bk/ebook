@@ -60,12 +60,13 @@ dependencies:
 dependency_overrides:
   meta: 1.7.0
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
   retrofit_generator: 2.0.1+1
   build_runner: 2.0.6
+  hive_generator: 1.1.1
+
 
 
 # For information on the generic Dart part of this file, see the
@@ -130,8 +131,10 @@ flutter:
     - asset/dollar.png
     - asset/sale_cv.png
     - asset/raund1.png
+    - asset/ok.png
     - asset/raund2.png
     - asset/mask.png
+    - asset/forgot.svg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

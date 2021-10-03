@@ -12,8 +12,11 @@ class OrderList {
   final DateTime createdAt;
   final DateTime updatedAt;
   final dynamic handoverBy;
+  final String statusStr;
+  final String statusColor;
   final List<RequestPackages> requestPackages;
   final UserOrderInfo user;
+
 
   OrderList(
       {required this.id,
@@ -24,6 +27,8 @@ class OrderList {
       required this.createdAt,
       required this.updatedAt,
       required this.handoverBy,
+      required this.statusStr,
+      required this.statusColor,
       required this.requestPackages,
       required this.user
       });

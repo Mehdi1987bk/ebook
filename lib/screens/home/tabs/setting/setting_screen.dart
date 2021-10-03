@@ -2,11 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/bloc/base_screen.dart';
-import 'package:kango/presentation/common/user_details_declaration.dart';
+import 'package:kango/presentation/common/user_details.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/home/tabs/setting/setting_bloc.dart';
 import 'package:kango/screens/login/login_screen.dart';
 import 'package:kango/screens/utils/text_style.dart';
+
+import '../../home_screen.dart';
 
 class SettingScreen extends BaseScreen {
   @override
@@ -18,9 +20,7 @@ class _SettingScreenState extends BaseState<SettingScreen, SettingBloc> {
   Widget body() {
     return ListView(
       children: [
-        UserDetailsDeclaration(
-          user: bloc.user,
-        ),
+        UserDetails(),
         Container(
           margin:
               const EdgeInsets.only(bottom: 25, left: 16, right: 16, top: 31),

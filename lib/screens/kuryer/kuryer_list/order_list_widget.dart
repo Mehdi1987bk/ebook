@@ -31,7 +31,14 @@ class OrderListWidget extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         bottom: 19, top: 15, left: 15, right: 15),
                     child: _ShortInfo(
-                      status: orderList[index].status.toString(),
+                      status: Text(
+                        orderList[index].statusStr,
+                        style: TextStyle(
+                            color: Color(int.tryParse(
+                                    'FF${orderList[index].statusColor}',
+                                    radix: 16) ??
+                                0),fontSize: 14, fontWeight: FontWeight.w600),
+                      ),
                       requestPackages: orderList[index].requestPackages.first,
                       widget: Row(
                         children: [
@@ -68,10 +75,18 @@ class OrderListWidget extends StatelessWidget {
                               ),
                               requestPackages:
                                   orderList[index].requestPackages.first,
-                              status: orderList[index].status.toString(),
+                              status: Text(
+                                orderList[index].statusStr,
+                                style: TextStyle(
+                                    color: Color(int.tryParse(
+                                            'FF${orderList[index].statusColor}',
+                                            radix: 16) ??
+                                        0),fontSize: 14, fontWeight: FontWeight.w600),
+                              ),
                             ),
                             _ShortInfo2(
-                              name: '${orderList[index].user.firstName} ${orderList[index].user.lastName}',
+                              name:
+                                  '${orderList[index].user.firstName} ${orderList[index].user.lastName}',
                               address: orderList[index].address,
                             )
                           ],
@@ -114,7 +129,7 @@ class _ShortInfo extends StatelessWidget {
       fontSize: 14,
       fontWeight: FontWeight.w500,
       color: AppColors.borderPayment);
-  final String status;
+  final Widget status;
   final RequestPackages requestPackages;
   final Widget widget;
 
@@ -165,10 +180,7 @@ class _ShortInfo extends StatelessWidget {
                 '${S.of(context).status} ',
                 style: styleText3,
               ),
-              Text(
-                status,
-                style: styleText6,
-              ),
+              status,
             ],
           ),
         ],

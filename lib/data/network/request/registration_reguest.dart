@@ -17,20 +17,23 @@ class RegistrationRequest {
   final String password;
   final String passwordConfirmation;
   final String address;
+  final int filialId;
 
   RegistrationRequest({
-    required  this.firstName,
-    required  this.lastName,
-    required  this.birthday,
-    required  this.gender,
-    required  this.email,
-    required  this.mobile,
-    required  this.passportSerie,
-    required  this.passportNumber,
-    required  this.passportFin,
-    required  this.password,
-    required  this.passwordConfirmation,
-    required  this.address});
+    required this.firstName,
+    required this.lastName,
+    required this.birthday,
+    required this.gender,
+    required this.email,
+    required this.mobile,
+    required this.passportSerie,
+    required this.passportNumber,
+    required this.passportFin,
+    required this.password,
+    required this.passwordConfirmation,
+    required this.address,
+    required this.filialId,
+  });
 
   factory RegistrationRequest.fromJson(Map<String, dynamic> json) =>
       _$RegistrationRequestFromJson(json);

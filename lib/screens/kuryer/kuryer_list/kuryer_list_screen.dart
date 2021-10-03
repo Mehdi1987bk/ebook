@@ -34,7 +34,7 @@ class _KuryerListScreenState
             },
             child: Row(
               children: [
-                Image.asset("asset/vektor_23.png"),
+                Image.asset('asset/vektor_23.png'),
                 const SizedBox(
                   width: 18,
                 ),

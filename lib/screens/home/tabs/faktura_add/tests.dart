@@ -9,6 +9,7 @@ import 'package:kango/domain/entities/user_details.dart';
 import 'package:kango/domain/repositories/order_repository.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/main.dart';
+import 'package:kango/presentation/bloc/error_dispatcher.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/utils/demical_number_validator.dart';
 import 'package:kango/screens/utils/patterns.dart';
@@ -20,7 +21,7 @@ class Dialog_test extends StatefulWidget {
   _OrderInfoDialogState createState() => _OrderInfoDialogState();
 }
 
-class _OrderInfoDialogState extends State<Dialog_test> {
+class _OrderInfoDialogState extends State<Dialog_test>{
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(

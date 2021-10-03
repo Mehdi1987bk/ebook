@@ -19,6 +19,7 @@ class Order {
       required this.trackingCode,
       required this.details,
       required this.orderPhotos,
+      required this.productType,
       });
 
   final int id;
@@ -33,8 +34,7 @@ class Order {
   final String trackingCode;
   final String details;
   final List<OrderPhotos> orderPhotos;
-
-
+  final ProductType productType;
 
 
 

@@ -22,6 +22,7 @@ class Declaration {
     required this.filialId,
     required this.courierSentAt,
     required this.statusStr,
+    required this.externalWarehouseId,
     required this.scStatus,
     required this.scStatusFront,
     required this.fullCode,
@@ -41,10 +42,11 @@ class Declaration {
   final String combinedPackage;
   final int status;
   final int scStatus;
-  final DateTime cargoSentAt;
+  final DateTime? cargoSentAt;
   final DateTime? courierSentAt;
   final int filialId;
   final String statusStr;
+  final int externalWarehouseId;
   final String scStatusFront;
   final String scStatusColor;
   final String fullCode;

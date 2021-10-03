@@ -1,13 +1,15 @@
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/bloc/base_screen.dart';
+import 'package:kango/presentation/bloc/error_dispatcher.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
+import 'package:kango/screens/home/home_screen.dart';
 import 'package:kango/screens/registration/page/step_one.dart';
 import 'package:kango/screens/registration/page/step_three.dart';
 import 'package:kango/screens/registration/page/step_two.dart';
 import 'package:kango/screens/registration/registration_bloc.dart';
-import 'package:kango/screens/utils/custem_scrol_viev.dart';
 
 class RegistrationScreen extends BaseScreen {
   @override
@@ -15,7 +17,7 @@ class RegistrationScreen extends BaseScreen {
 }
 
 class _RegistrationScreenState
-    extends BaseState<RegistrationScreen, RegistrationBloc> {
+    extends BaseState<RegistrationScreen, RegistrationBloc> with ErrorDispatcher{
   final PageController _pageController = PageController();
   final ScrollController _scrollController = ScrollController();
   final ValueNotifier<double> _notifier = ValueNotifier(0.0);
@@ -87,7 +89,7 @@ class _RegistrationScreenState
                     valueListenable: _notifier,
                     builder: (BuildContext context, value, Widget? child) {
                       return Padding(
-                        padding: const EdgeInsets.only(left: 16,top: 45),
+                        padding: const EdgeInsets.only(left: 16, top: 45),
                         child: DotsIndicator(
                           dotsCount: 3,
                           position: value,
@@ -107,21 +109,24 @@ class _RegistrationScreenState
               ),
             ),
             SliverFillRemaining(
-
               child: PageView(
                 controller: _pageController,
-                physics:  NeverScrollableScrollPhysics(),
+                physics: NeverScrollableScrollPhysics(),
                 children: [
                   StepOne(
                       bloc: bloc,
                       onNexStep: moveToNextPage,
                       previousPage: moveToPreviousPage),
                   StepTwo(
-                      onNexStep: moveToNextPage,
-                      previousPage: moveToPreviousPage, bloc: bloc,),
+                    onNexStep: moveToNextPage,
+                    previousPage: moveToPreviousPage,
+                    bloc: bloc,
+                  ),
                   StepThree(
-                      onNexStep: moveToNextPage,
-                      previousPage: moveToPreviousPage, bloc: bloc,),
+                    onNexStep: moveToNextPage,
+                    previousPage: moveToPreviousPage,
+                    bloc: bloc,
+                  ),
                 ],
               ),
             )
@@ -145,7 +150,12 @@ class _RegistrationScreenState
 
   void moveToNextPage() {
     if ((_pageController.page ?? 0) > 1.0) {
-      bloc.registration();
+      bloc.registration().then((value) => Navigator.pushAndRemoveUntil(
+          context,
+          CupertinoPageRoute(
+            builder: (BuildContext context) => HomeScreen(),
+          ),
+          (route) => false));
       return;
     }
     _pageController.nextPage(

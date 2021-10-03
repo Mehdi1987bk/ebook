@@ -10,14 +10,9 @@ import 'package:rxdart/rxdart.dart';
 import '../../../../main.dart';
 
 class DeclarationBloc extends PaginableBloc<Declaration>{
-  final PublishSubject<User> user = PublishSubject();
-  final UserRepository _userRepository = sl.get<UserRepository>();
   final OrderRepository _orderRepository = sl.get<OrderRepository>();
   @override
-  void init() {
-    super.init();
-    _userRepository.getUserDetails().then(user.add);
-  }
+
 
   @override
   Future<Pagination<Declaration>> provideSource(int page) {

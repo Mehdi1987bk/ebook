@@ -1369,6 +1369,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Şəxsiyyət vəsiqəsinin seriya nömrəsi`
+  String get xsiyytVsiqsininSeriyaNmrsi {
+    return Intl.message(
+      'Şəxsiyyət vəsiqəsinin seriya nömrəsi',
+      name: 'xsiyytVsiqsininSeriyaNmrsi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Şəxsiyyət vəsiqəsinin FİN kodu`
+  String get xsiyytVsiqsininFnKodu {
+    return Intl.message(
+      'Şəxsiyyət vəsiqəsinin FİN kodu',
+      name: 'xsiyytVsiqsininFnKodu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filial seçin`
+  String get filialSein {
+    return Intl.message(
+      'Filial seçin',
+      name: 'filialSein',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ş.V. -nin seriya nömrəsi`
+  String get vNinSeriyaNmrsi {
+    return Intl.message(
+      'Ş.V. -nin seriya nömrəsi',
+      name: 'vNinSeriyaNmrsi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ünvanınızı daxil edin`
+  String get nvannzDaxilEdin {
+    return Intl.message(
+      'Ünvanınızı daxil edin',
+      name: 'nvannzDaxilEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daxil etdiyiniz e-mail ünvana növbəti addım haqqında məktub göndərildi!`
+  String get daxilEtdiyini {
+    return Intl.message(
+      'Daxil etdiyiniz e-mail ünvana növbəti addım haqqında məktub göndərildi!',
+      name: 'daxilEtdiyini',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,5 +1,6 @@
 import 'package:kango/data/cache/cache_manager.dart';
 import 'package:kango/data/network/api/auth_api.dart';
+import 'package:kango/data/network/request/forgot_password_request.dart';
 import 'package:kango/data/network/request/kuryer_request.dart';
 import 'package:kango/data/network/request/login_request.dart';
 import 'package:kango/data/network/request/registration_reguest.dart';
@@ -56,14 +57,23 @@ class DataAuthRepository implements AuthRepository {
   @override
   Future<void> registe(RegistrationRequest request) async {
     final response = await _authApi.register(request);
+    await _cacheManager.saveAccessToken(response.token);
   }
 
   @override
   Future<void> logout() async {
-    // final token = await _cacheManager.getAccessToken();
-    // if (token != null) {
-    //   return _authApi.logout(token);
-    // }
+    final token = await _cacheManager.getAccessToken();
+    if (token != null) {
+      return _authApi.logout(token);
+    }
    await _cacheManager.clear();
   }
+
+  @override
+  Future<String> forgotPassword(ForgotPasswordRequest request) async{
+    final response = await _authApi.forgotPassword(request);
+    return response.success;
+  }
+
+
 }

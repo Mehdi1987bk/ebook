@@ -5,7 +5,9 @@ import 'package:kango/screens/utils/patterns.dart';
 
 import '../registration_bloc.dart';
 
-const dialCodes = ['055', '070', '077', '050'];
+const dialCodes = ['055','070','077','050','051'];
+const seriyaCodes = ['AZE', 'AA', 'MYİ', 'DYİ'];
+
 
 class StepTwo extends StatefulWidget {
   final VoidCallback previousPage;
@@ -24,7 +26,7 @@ class StepTwo extends StatefulWidget {
   _StepTwoState createState() => _StepTwoState();
 }
 
-class _StepTwoState extends State<StepTwo> {
+class _StepTwoState extends State<StepTwo> with AutomaticKeepAliveClientMixin{
   final ValueNotifier<bool> _valueNotifier = ValueNotifier(false);
   final TextEditingController _phoneNumber = TextEditingController();
   final TextEditingController _password = TextEditingController();
@@ -48,6 +50,8 @@ class _StepTwoState extends State<StepTwo> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return ListView(
       physics: const NeverScrollableScrollPhysics(),
       children: [
@@ -174,6 +178,9 @@ class _StepTwoState extends State<StepTwo> {
       ],
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void dispose() {

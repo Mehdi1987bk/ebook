@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
@@ -13,7 +11,6 @@ import 'package:kango/data/network/api/user_api.dart';
 import 'package:kango/data/repositories/data_auth_repository.dart';
 import 'package:kango/domain/repositories/auth_repository.dart';
 import 'package:kango/domain/repositories/user_repository.dart';
-import 'package:kango/screens/onboarding/onboarding_screen.dart';
 import 'package:kango/screens/splesh/splesh_screen.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
@@ -22,6 +19,8 @@ import 'data/cache/data_cache_manager.dart';
 import 'data/network/api/auth_api.dart';
 import 'data/repositories/data_order_repository.dart';
 import 'data/repositories/data_user_details.dart';
+import 'domain/entities/gender.dart';
+import 'domain/entities/user_details.dart';
 import 'domain/repositories/order_repository.dart';
 import 'generated/l10n.dart';
 
@@ -36,9 +35,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterDownloader.initialize(
       debug: true // optional: set false to disable printing logs to console
-  );
+      );
   final dir = await getApplicationDocumentsDirectory();
-  Hive..init(dir.path);
+  Hive
+    ..init(dir.path)
+    ..registerAdapter(UserAdapter())
+    ..registerAdapter(GenderAdapter());
   _registerDependency();
   runApp(MyApp());
 }

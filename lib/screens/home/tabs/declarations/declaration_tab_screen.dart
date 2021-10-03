@@ -3,11 +3,12 @@ import 'package:kango/domain/entities/declaration.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/bloc/base_screen.dart';
 import 'package:kango/presentation/bloc/utils.dart';
-import 'package:kango/presentation/common/user_details_declaration.dart';
+import 'package:kango/presentation/common/user_details.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/home/tabs/declarations/declarations_orders/order_list.dart';
 import 'package:kango/screens/utils/text_style.dart';
 
+import '../../home_screen.dart';
 import 'declaration_tab_bloc.dart';
 
 class DeclarationTabScreen extends BaseScreen {
@@ -38,12 +39,10 @@ class _DeclarationTabScreen
       controller: _scrollController,
       slivers: [
         const SliverToBoxAdapter(),
-        SliverToBoxAdapter(
+         SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(top: 28),
-              child: UserDetailsDeclaration(
-          user: bloc.user,
-        ),
+              padding:  EdgeInsets.only(top: 28),
+              child: UserDetails(),
             )),
         SliverToBoxAdapter(
           child: Container(

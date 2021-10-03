@@ -82,6 +82,9 @@ class _ShortInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  final intColor =  int.tryParse('FF${declaration.scStatusColor}',
+        radix: 16)?? 0;
+
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
@@ -117,11 +120,16 @@ class _ShortInfo extends StatelessWidget {
             children: [
               Text(
                 S.of(context).scStatus,
-                style: styleText3,
+                style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,),
               ),
               Text(
                 declaration.scStatusFront.toString(),
-                style: styleText5,
+                style:  TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Color(intColor)),
               ),
             ],
           ),
@@ -213,7 +221,7 @@ class OrderItem extends StatelessWidget {
                   style: styleText1,
                 ),
                 Text(
-                  declaration.ordersTotal.toString() + " ",
+                  '${declaration.ordersTotal} ',
                   style: styleText3,
                 ),
                 Padding(
@@ -323,8 +331,7 @@ class OrderItem extends StatelessWidget {
               height: 0.5,
               color: AppColors.appColor,
             ),
-            EditPaymentOrders(
-            )
+            EditPaymentOrders()
           ],
         ),
       ),
@@ -333,10 +340,8 @@ class OrderItem extends StatelessWidget {
 }
 
 class EditPaymentOrders extends StatelessWidget {
-
   final styleText4 = const TextStyle(
       fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.onbording1);
-
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,5 @@
+import 'package:kango/domain/entities/user_details.dart';
+
 abstract class CacheManager {
 
   Future<void> saveAccessToken(String token);
@@ -12,4 +14,8 @@ abstract class CacheManager {
   Future<void> clear();
 
   Future<int> getRefreshTokenTime();
+
+  Stream<User> getUser();
+
+  Future<void> updateLocalUser(User user);
 }
