@@ -8,14 +8,23 @@ import 'package:kango/screens/home/tabs/setting/setting_bloc.dart';
 import 'package:kango/screens/login/login_screen.dart';
 import 'package:kango/screens/utils/text_style.dart';
 
+import '../../../../main.dart';
 import '../../home_screen.dart';
+import 'foreign_address/foreign_address.dart';
 
 class SettingScreen extends BaseScreen {
   @override
   _SettingScreenState createState() => _SettingScreenState();
 }
 
-class _SettingScreenState extends BaseState<SettingScreen, SettingBloc> {
+class _SettingScreenState extends BaseState<SettingScreen, SettingBloc>
+    with RouteAware {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context)!);
+  }
+
   @override
   Widget body() {
     return ListView(
@@ -55,19 +64,27 @@ class _SettingScreenState extends BaseState<SettingScreen, SettingBloc> {
             ],
           ),
         ),
-        Container(
-          padding: const EdgeInsets.only(top: 61, left: 20),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 13),
-                child: Image.asset('asset/vill.png'),
-              ),
-              Text(
-                S.of(context).xariciNvanlarm,
-                style: TextStyles.styleText12,
-              ),
-            ],
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                CupertinoPageRoute(builder: (BuildContext context) {
+              return ForeignAddress();
+            }));
+          },
+          child: Container(
+            padding: const EdgeInsets.only(top: 61, left: 20),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 13),
+                  child: Image.asset('asset/vill.png'),
+                ),
+                Text(
+                  S.of(context).xariciNvanlarm,
+                  style: TextStyles.styleText12,
+                ),
+              ],
+            ),
           ),
         ),
         Container(
@@ -109,6 +126,18 @@ class _SettingScreenState extends BaseState<SettingScreen, SettingBloc> {
         ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  void didPop() {
+    selectedMenuIndex = -1;
+    super.didPop();
   }
 
   @override

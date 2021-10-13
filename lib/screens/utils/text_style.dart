@@ -5,7 +5,7 @@ abstract class TextStyles {
   static const styleText2 = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w600, color: AppColors.appColor);
   static const styleText18 = TextStyle(
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: FontWeight.w400,
   );
   static const styleText3 =
@@ -14,8 +14,8 @@ abstract class TextStyles {
       TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black);
   static const styleText4 =
       TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Colors.black);
-  static const styleText20 =
-      TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: AppColors.appColor);
+  static const styleText20 = TextStyle(
+      fontSize: 20, fontWeight: FontWeight.w700, color: AppColors.appColor);
   static const styleText5 =
       TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black);
   static const styleText10 =
@@ -30,6 +30,10 @@ abstract class TextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
+  static const styleText23 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+  );
   static const styleText12 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w400,
@@ -42,8 +46,10 @@ abstract class TextStyles {
   );
   static const styleText13 =
       TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white);
-  static const styleText19 =
-      TextStyle(fontSize: 14, fontWeight: FontWeight.w700, );
+  static const styleText19 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+  );
   static const styleText9 =
       TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white);
   static const styleText15 = TextStyle(
@@ -51,11 +57,9 @@ abstract class TextStyles {
       fontWeight: FontWeight.w600,
       color: AppColors.homeButtonBacgraund);
   static const styleText22 = TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.w400,
-      );
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+  );
   static const styleText21 = TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.w700,
-      color: AppColors.appColor);
+      fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.appColor);
 }

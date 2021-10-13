@@ -1429,6 +1429,76 @@ class S {
       args: [],
     );
   }
+
+  /// `+994 12 525 43 43`
+  String get number1 {
+    return Intl.message(
+      '+994 12 525 43 43',
+      name: 'number1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Telefon nömrələrimiz`
+  String get telefonNmrlrimiz {
+    return Intl.message(
+      'Telefon nömrələrimiz',
+      name: 'telefonNmrlrimiz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `+994 50 253 8907`
+  String get number2 {
+    return Intl.message(
+      '+994 50 253 8907',
+      name: 'number2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ünvan`
+  String get nvand {
+    return Intl.message(
+      'Ünvan',
+      name: 'nvand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bakı şəhəri, Nərimanov rayonu, Ağa Neymatulla b 44/2 (Metropark t.m yanı)`
+  String get bakHriNrimanovRayonuAaNeymatullaB442MetroparkTm {
+    return Intl.message(
+      'Bakı şəhəri, Nərimanov rayonu, Ağa Neymatulla b 44/2 (Metropark t.m yanı)',
+      name: 'bakHriNrimanovRayonuAaNeymatullaB442MetroparkTm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `+994 50 253 89 07`
+  String get number3 {
+    return Intl.message(
+      '+994 50 253 89 07',
+      name: 'number3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bildirişlərim`
+  String get bildirilrim {
+    return Intl.message(
+      'Bildirişlərim',
+      name: 'bildirilrim',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

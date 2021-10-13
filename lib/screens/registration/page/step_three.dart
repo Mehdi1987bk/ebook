@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kango/domain/entities/contact.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
+import 'package:kango/screens/login/login_screen.dart';
 import 'package:kango/screens/registration/page/step_two.dart';
 import 'package:kango/screens/utils/patterns.dart';
 
@@ -221,8 +223,24 @@ class _StepThreeState extends State<StepThree> with AutomaticKeepAliveClientMixi
             );
           },
         ),
-        TextButton(onPressed: widget.previousPage, child: Text("dfdfd"))
-      ],
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: TextButton(
+            //widget.previousPage
+              onPressed:() => Navigator.pushAndRemoveUntil(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (BuildContext context) => LoginScreen(),
+                  ),
+                      (route) => false),
+              child: Text(
+                S.of(context).giriEt,
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16),
+              )),
+        )      ],
     );
 
   }

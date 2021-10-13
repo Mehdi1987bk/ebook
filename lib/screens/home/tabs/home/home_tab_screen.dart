@@ -3,7 +3,7 @@ import 'package:kango/domain/entities/user_details.dart';
 import 'package:kango/domain/repositories/user_repository.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/bloc/base_screen.dart';
-import 'package:kango/presentation/common/trafic_widget.dart';
+import 'package:kango/screens/trafik/item/trafic_widget_screen.dart';
 import 'package:kango/presentation/common/user_details.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
 import 'package:kango/screens/home/tabs/home/home_tab_bloc.dart';
@@ -89,7 +89,7 @@ class _HomeTabState extends BaseState<HomeTab, HomeTabBloc> {
         const SizedBox(
           height: 40,
         ),
-        TraficWidget(),
+        TraficWidgetScreen(),
         const SizedBox(
           height: 48,
         ),

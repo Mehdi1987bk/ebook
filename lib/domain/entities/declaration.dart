@@ -51,7 +51,6 @@ class Declaration {
   final String scStatusColor;
   final String fullCode;
   final List<Order> orders;
-  @JsonKey(ignore: true)
   bool customerCanEdit = false;
 
   factory Declaration.fromJson(Map<String, dynamic> json) =>

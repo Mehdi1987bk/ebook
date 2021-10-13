@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kango/domain/entities/user_details.dart';
 import 'package:kango/domain/repositories/user_repository.dart';
 import 'package:kango/generated/l10n.dart';
-import 'package:kango/presentation/common/trafic_widget.dart';
+import 'package:kango/screens/trafik/item/trafic_widget_screen.dart';
 import 'package:kango/presentation/common/user_details.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
-import 'package:kango/screens/home/home_screen.dart';
-import 'package:kango/screens/trafik/tabs/tabs_one_screen.dart';
-import 'package:kango/screens/trafik/tabs/tabs_tow_screen.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../main.dart';
@@ -22,7 +19,6 @@ class _TraficItemState extends State<TraficItem>
   final PublishSubject<User> user = PublishSubject();
   final UserRepository _userRepository = sl.get<UserRepository>();
   late TabController _tabsController;
-  final List<Widget> _tabs = [TabsOne(), TabsTow()];
 
   @override
   void initState() {
@@ -70,7 +66,7 @@ class _TraficItemState extends State<TraficItem>
             height: 1,
             color: AppColors.appColor,
           ),
-          Expanded(child: TraficWidget()),
+          Expanded(child: TraficWidgetScreen()),
 
         ],
       ),

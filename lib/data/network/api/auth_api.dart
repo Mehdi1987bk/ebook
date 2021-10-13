@@ -5,6 +5,7 @@ import 'package:kango/data/network/request/registration_reguest.dart';
 import 'package:kango/data/network/response/forgot_password.dart';
 import 'package:kango/data/network/response/login_response.dart';
 import 'package:kango/data/network/response/register_response.dart';
+import 'package:kango/domain/entities/message.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../../main.dart';
@@ -30,4 +31,6 @@ abstract class AuthApi {
 
   @POST('api/v1.0/mobile/password/email')
   Future<ForgotPasswordResponse> forgotPassword(@Body() ForgotPasswordRequest request);
+
+
 }

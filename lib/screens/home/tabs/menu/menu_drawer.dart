@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kango/generated/l10n.dart';
-import 'package:kango/presentation/bloc/base_screen.dart';
 import 'package:kango/presentation/common/user_details.dart';
 
 import 'package:kango/presentation/resourses/app_colors.dart';
+import 'package:kango/screens/contact_us/contacts_us.dart';
 import 'package:kango/screens/home/tabs/home/payment/payment_home.dart';
 import 'package:kango/screens/kuryer/kuryer_screen.dart';
 import 'package:kango/screens/trafik/trafik_screen.dart';
@@ -12,25 +12,17 @@ import 'package:kango/screens/utils/text_style.dart';
 
 import '../../bottom_bar.dart';
 import '../../home_screen.dart';
-import 'menu_drawer_bloc.dart';
 
-class MenuDrawer extends BaseScreen {
+class MenuDrawer extends StatelessWidget {
   @override
-  _MenuDrawerState createState() => _MenuDrawerState();
-}
-
-class _MenuDrawerState extends BaseState<MenuDrawer, DeclarationBloc> {
-
-
-  @override
-  Widget body() {
+  Widget build(BuildContext context) {
     return ListView(
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 25),
           child: Row(
             children: [
-              UserDetails(),
+              const UserDetails(),
               const Spacer(),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
@@ -69,45 +61,94 @@ class _MenuDrawerState extends BaseState<MenuDrawer, DeclarationBloc> {
           child: PaymentHome(),
         ),
         GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-            bottomBarKey.currentState?.navigateTo(3);
+          onTap: () async {
+            if (selectedMenuIndex != 0) {
+              selectedMenuIndex = 0;
+              Navigator.pop(context);
+              await Future.delayed(Duration(milliseconds: 300));
+
+              Navigator.popUntil(context, (route) => route.isFirst);
+              bottomBarKey.currentState?.navigateTo(3);
+            } else {
+              Navigator.pop(context);
+            }
           },
           child: MenuItem(
             icon: 'asset/profilq.png',
             text: S.of(context).xsiKabinet,
+            index: 0,
           ),
         ),
         GestureDetector(
-          onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) { return KuryerScreen(); })),
+          onTap: () {
+            if (selectedMenuIndex != 1) {
+              selectedMenuIndex = 1;
+              Navigator.pop(context);
+              Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (BuildContext context) {
+                return KuryerScreen();
+              }), (route) => route.isFirst);
+            } else {
+              Navigator.pop(context);
+            }
+          },
           child: MenuItem(
             icon: 'asset/kuryerrr.png',
             text: S.of(context).kuryerSifarii,
+            index: 1,
           ),
         ),
         MenuItem(
           icon: 'asset/kart.png',
           text: S.of(context).onlaynDamaHaqqDnii,
+          index: 2,
         ),
         GestureDetector(
-          onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) { return TrafikScreen(); })),
+          onTap: () {
+            if (selectedMenuIndex != 3) {
+              selectedMenuIndex = 3;
+              Navigator.pop(context);
+              Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (BuildContext context) {
+                return TrafikScreen();
+              }), (route) => route.isFirst);
+            } else {
+              Navigator.pop(context);
+            }
+          },
           child: MenuItem(
             icon: 'asset/trafik.png',
             text: S.of(context).tariflr,
+            index: 3,
           ),
         ),
         MenuItem(
           icon: 'asset/newss.png',
           text: S.of(context).xbrlr,
+          index: 4,
         ),
         MenuItem(
           icon: 'asset/fillials.png',
           text: S.of(context).kangoFiliallar,
+          index: 5,
         ),
-        MenuItem(
-          icon: 'asset/poct.png',
-          text: S.of(context).laq,
+        GestureDetector(
+          onTap: () {
+            if (selectedMenuIndex != 6) {
+              selectedMenuIndex = 6;
+              Navigator.pop(context);
+              Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (BuildContext context) {
+                return ContactsUs();
+              }), (route) => route.isFirst);
+            } else {
+              Navigator.pop(context);
+            }
+          },
+          child:  MenuItem(
+            icon: 'asset/poct.png',
+            text: S.of(context).laq,
+            index: 6,
+          ),
         ),
+
         Container(
           margin:
               const EdgeInsets.only(bottom: 8.5, left: 20, right: 20, top: 15),
@@ -122,16 +163,15 @@ class _MenuDrawerState extends BaseState<MenuDrawer, DeclarationBloc> {
       ],
     );
   }
-
-  @override
-  DeclarationBloc provideBloc() => DeclarationBloc();
 }
 
 class MenuItem extends StatelessWidget {
   final String icon;
   final String text;
+  final int index;
 
-  const MenuItem({Key? key, required this.icon, required this.text})
+  const MenuItem(
+      {Key? key, required this.icon, required this.text, required this.index})
       : super(key: key);
 
   @override

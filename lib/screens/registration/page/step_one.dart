@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kango/domain/entities/gender.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
+import 'package:kango/screens/login/login_screen.dart';
 import 'package:kango/screens/registration/registration_bloc.dart';
 import 'package:kango/screens/utils/patterns.dart';
 
@@ -22,7 +24,7 @@ class StepOne extends StatefulWidget {
   _StepOneState createState() => _StepOneState();
 }
 
-class _StepOneState extends State<StepOne>  with AutomaticKeepAliveClientMixin{
+class _StepOneState extends State<StepOne> with AutomaticKeepAliveClientMixin {
   final ValueNotifier<bool> _valueNotifier = ValueNotifier(false);
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
@@ -31,7 +33,6 @@ class _StepOneState extends State<StepOne>  with AutomaticKeepAliveClientMixin{
   final dateFormat = DateFormat('yyyy-MM-dd');
   final firstDate = DateTime(1960, 1);
   final lastDate = DateTime.now();
-
 
   RegistrationBloc get _bloc => widget.bloc;
 
@@ -221,8 +222,24 @@ class _StepOneState extends State<StepOne>  with AutomaticKeepAliveClientMixin{
             );
           },
         ),
-        TextButton(
-            onPressed: widget.previousPage, child: Text(S.of(context).giriEt))
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: TextButton(
+              //widget.previousPage
+              onPressed:() => Navigator.pushAndRemoveUntil(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (BuildContext context) => LoginScreen(),
+                  ),
+                  (route) => false),
+              child: Text(
+                S.of(context).giriEt,
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16),
+              )),
+        )
       ],
     );
   }
@@ -246,7 +263,6 @@ class _StepOneState extends State<StepOne>  with AutomaticKeepAliveClientMixin{
   @override
   void dispose() {
     _firstNameController.dispose();
-    _firstNameController.dispose();
     _lastNameController.dispose();
     _dateTimeController.dispose();
     _emailController.dispose();
@@ -255,11 +271,12 @@ class _StepOneState extends State<StepOne>  with AutomaticKeepAliveClientMixin{
   }
 
   void _validate() {
-    final isValid = Patterns.userName.hasMatch(_bloc.firstPageInfo.firstName) &&
-        Patterns.userName.hasMatch(_bloc.firstPageInfo.lastName) &&
-        Patterns.email.hasMatch(_bloc.firstPageInfo.email) &&
-        _bloc.firstPageInfo.birthday != null &&
-        _bloc.firstPageInfo.gender != null;
+    final isValid =
+        Patterns.userNames.hasMatch(_bloc.firstPageInfo.firstName) &&
+            Patterns.userName.hasMatch(_bloc.firstPageInfo.lastName) &&
+            Patterns.email.hasMatch(_bloc.firstPageInfo.email) &&
+            _bloc.firstPageInfo.birthday != null &&
+            _bloc.firstPageInfo.gender != null;
     _valueNotifier.value = isValid;
   }
 

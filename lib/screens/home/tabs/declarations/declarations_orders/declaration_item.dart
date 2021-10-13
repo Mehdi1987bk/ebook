@@ -33,6 +33,9 @@ class _DeclarationItemState extends State<DeclarationItem> {
           padding: const EdgeInsets.only(left: 16, right: 16, bottom: 14),
           child: Builder(
             builder: (context) => Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
               child: ExpandablePanel(
                 collapsed: Padding(
                   padding: const EdgeInsets.only(
@@ -82,8 +85,8 @@ class _ShortInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  final intColor =  int.tryParse('FF${declaration.scStatusColor}',
-        radix: 16)?? 0;
+    final intColor =
+        int.tryParse('FF${declaration.scStatusColor}', radix: 16) ?? 0;
 
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
@@ -121,12 +124,13 @@ class _ShortInfo extends StatelessWidget {
               Text(
                 S.of(context).scStatus,
                 style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               Text(
                 declaration.scStatusFront.toString(),
-                style:  TextStyle(
+                style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                     color: Color(intColor)),
@@ -224,13 +228,20 @@ class OrderItem extends StatelessWidget {
                   '${declaration.ordersTotal} ',
                   style: styleText3,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 1.5),
-                  child: Image.asset(
-                    'asset/tl.png',
-                    width: 9,
+                if (declaration.externalWarehouseId == 1)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 1.5),
+                    child: Image.asset(
+                      'asset/tl.png',
+                      width: 9,
+                    ),
                   ),
-                ),
+                if (declaration.externalWarehouseId == 2)
+                  Image.asset(
+                    'asset/dollar.png',
+                    width: 9,
+                    color: Colors.black,
+                  ),
                 const Spacer(),
                 Container(
                   width: 125,
@@ -241,11 +252,11 @@ class OrderItem extends StatelessWidget {
                         style: styleText1,
                       ),
                       Text(
-                        declaration.cargoTotal.toString() + " ",
+                        '${declaration.cargoTotal} ',
                         style: styleText3,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 0),
+                        padding: const EdgeInsets.only(bottom: 1),
                         child: Image.asset(
                           'asset/dollar.png',
                           width: 9,
@@ -263,15 +274,6 @@ class OrderItem extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  S.of(context).mhsulunTipi,
-                  style: styleText1,
-                ),
-                Text(
-                  order.quantity.toString(),
-                  style: styleText3,
-                ),
-                const Spacer(),
                 Container(
                   width: 125,
                   child: Row(children: [
@@ -283,7 +285,7 @@ class OrderItem extends StatelessWidget {
                       declaration.cargoWeight,
                       style: styleText3,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 1,
                     ),
                     Text(
@@ -301,6 +303,15 @@ class OrderItem extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Text(
                   S.of(context).maazae + ": " + order.shopName,
+                  style: styleText1,
+                )),
+            const SizedBox(
+              height: 12,
+            ),
+            Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  S.of(context).mhsulunTipi + ": " + order.productType.name,
                   style: styleText1,
                 )),
             Container(
@@ -331,7 +342,18 @@ class OrderItem extends StatelessWidget {
               height: 0.5,
               color: AppColors.appColor,
             ),
-            EditPaymentOrders()
+            EditPaymentOrders(
+              images: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: declaration.customerCanEdit == true
+                    ? Image.asset(
+                        'asset/pen.png',
+                        height: 23,
+                        width: 23,
+                      )
+                    : SizedBox(),
+              ),
+            )
           ],
         ),
       ),
@@ -342,6 +364,9 @@ class OrderItem extends StatelessWidget {
 class EditPaymentOrders extends StatelessWidget {
   final styleText4 = const TextStyle(
       fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.onbording1);
+  final Widget images;
+
+  const EditPaymentOrders({Key? key, required this.images}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -349,17 +374,9 @@ class EditPaymentOrders extends StatelessWidget {
       child: Row(
         children: [
           GestureDetector(
-            behavior: HitTestBehavior.translucent,
-            onTap: () {},
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(
-                'asset/pen.png',
-                height: 23,
-                width: 23,
-              ),
-            ),
-          ),
+              behavior: HitTestBehavior.translucent,
+              onTap: () {},
+              child: images),
           const Spacer(),
           Container(
               width: 158,

@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
+import 'package:kango/screens/messages/messages_screen.dart';
 
 import 'home_screen.dart';
 
@@ -52,7 +54,7 @@ final VoidCallback onMenuTap;
               child: InkWell(
                 borderRadius: const BorderRadius.all(Radius.circular(25)),
                 child: Image.asset('asset/sms.png'),
-                onTap: () {},
+                onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) { return MessageWidget(); })),
               ),
             ),
           ),

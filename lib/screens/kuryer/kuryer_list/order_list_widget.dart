@@ -26,6 +26,9 @@ class OrderListWidget extends StatelessWidget {
             padding: const EdgeInsets.only(left: 16, right: 16, bottom: 14),
             child: Builder(
               builder: (context) => Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
                 child: ExpandablePanel(
                   collapsed: Padding(
                     padding: const EdgeInsets.only(

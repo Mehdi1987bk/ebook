@@ -5,8 +5,10 @@ import 'package:kango/data/network/request/kuryer_request.dart';
 import 'package:kango/data/network/request/send_declarations.dart';
 import 'package:kango/domain/entities/contact.dart';
 import 'package:kango/domain/entities/declaration.dart';
+import 'package:kango/domain/entities/message.dart';
 import 'package:kango/domain/entities/order_list.dart';
 import 'package:kango/domain/entities/pagination.dart';
+import 'package:kango/domain/entities/delivery_ariff.dart';
 import 'package:kango/domain/repositories/auth_repository.dart';
 import 'package:kango/domain/repositories/order_repository.dart';
 
@@ -47,5 +49,16 @@ class DataOrderRepository implements OrderRepository {
   @override
   Future<List<Contact>> getContactList() {
    return _orderApi.getContactList();
+  }
+
+  @override
+  Future<DeliveryTariff> getTariffs() {
+    return _orderApi.getTariffs();
+  }
+
+  @override
+  Future<Pagination<Message>> getMessages(int page) async{
+    final token = await _authRepository.getToken();
+    return _orderApi.getMessage('Bearer $token', page);
   }
 }

@@ -90,10 +90,20 @@ class _OrderInfoDialogState extends State<OrderInfoDialog> {
                     Text(
                       widget.declaration.ordersTotal.toString(),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 1.5,left: 2),
-                      child: Image.asset('asset/tl.png',width: 9,),
-                    ),
+                    if (widget.declaration.externalWarehouseId == 1)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 1.5),
+                        child: Image.asset(
+                          'asset/tl.png',
+                          width: 9,
+                        ),
+                      ),
+                    if (widget.declaration.externalWarehouseId == 2)
+                      Image.asset(
+                        'asset/dollar.png',
+                        width: 9,
+                        color: Colors.black,
+                      ),
                   ],
                 ),
                 Container(
@@ -132,21 +142,17 @@ class _OrderInfoDialogState extends State<OrderInfoDialog> {
             padding: const EdgeInsets.only(bottom: 15, left: 15),
             child: Text(S.of(context).faktura, style: TextStyles.styleText6),
           ),
-          const _FileItem(
-            //Todo Foto downlide
-            url: "widget.orderPhotos.photo",
-          ),
+          if (widget.order.orderPhotos.isNotEmpty)
+            _FileItem(
+              url: widget.order.orderPhotos.first.photo,
+            ),
           _DialogItem(
             title: S.of(context).mhsulunSay,
             value: widget.order.quantity.toString(),
           ),
           _DialogItem(
-            title: S.of(context).lavXidmtlr,
-            value: widget.order.price,
-          ),
-          _DialogItem(
-            title: S.of(context).kateqoriya,
-            value: widget.order.price,
+            title: S.of(context).mhsulunTipi,
+            value: widget.order.productType.name,
           ),
           _DialogItem(
             title: S.of(context).dm,

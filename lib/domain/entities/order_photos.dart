@@ -16,8 +16,8 @@ final int id;
 final dynamic packageId;
 final int orderId;
 final String photo;
-final DateTime createdAt;
-final DateTime updatedAt;
+final DateTime? createdAt;
+final DateTime? updatedAt;
 final dynamic deletedAt;
 
 factory OrderPhotos.fromJson(Map<String, dynamic> json) => _$OrderPhotosFromJson(json);

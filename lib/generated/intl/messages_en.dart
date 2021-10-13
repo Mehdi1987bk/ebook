@@ -38,6 +38,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "aznnnn": MessageLookupByLibrary.simpleMessage("250.0"),
         "bakHrDaxili":
             MessageLookupByLibrary.simpleMessage("Bakı şəhər daxili"),
+        "bakHriNrimanovRayonuAaNeymatullaB442MetroparkTm":
+            MessageLookupByLibrary.simpleMessage(
+                "Bakı şəhəri, Nərimanov rayonu, Ağa Neymatulla b 44/2 (Metropark t.m yanı)"),
         "bakKndlri": MessageLookupByLibrary.simpleMessage("Bakı kəndləri"),
         "bakVSumqaytHrlriZr": MessageLookupByLibrary.simpleMessage(
             "Bakı və Sumqayıt şəhərləri üzrə"),
@@ -45,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "balamalar": MessageLookupByLibrary.simpleMessage("Bağlamalar"),
         "balamalarm": MessageLookupByLibrary.simpleMessage("Bağlamalarım"),
         "balansnz": MessageLookupByLibrary.simpleMessage("Balansınız"),
+        "bildirilrim": MessageLookupByLibrary.simpleMessage("Bildirişlərim"),
         "btnBalamalarm":
             MessageLookupByLibrary.simpleMessage("Bütün bağlamalarım"),
         "buGnSizXoAlverilrArzuEdirik": MessageLookupByLibrary.simpleMessage(
@@ -141,7 +145,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "mobilNmrniz": MessageLookupByLibrary.simpleMessage("Mobil nömrəniz"),
         "noInternetConnection":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
+        "number1": MessageLookupByLibrary.simpleMessage("+994 12 525 43 43"),
+        "number2": MessageLookupByLibrary.simpleMessage("+994 50 253 8907"),
+        "number3": MessageLookupByLibrary.simpleMessage("+994 50 253 89 07"),
         "nvan": MessageLookupByLibrary.simpleMessage("Ünvan:"),
+        "nvand": MessageLookupByLibrary.simpleMessage("Ünvan"),
         "nvannzDaxilEdin":
             MessageLookupByLibrary.simpleMessage("Ünvanınızı daxil edin"),
         "nvannzQeydEdin":
@@ -184,6 +192,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tariflr": MessageLookupByLibrary.simpleMessage("Tariflər"),
         "tariflrimiz": MessageLookupByLibrary.simpleMessage("Tariflərimiz -"),
         "tarixsi": MessageLookupByLibrary.simpleMessage("tarixçəsi"),
+        "telefonNmrlrimiz":
+            MessageLookupByLibrary.simpleMessage("Telefon nömrələrimiz"),
         "tkrarIfrniz": MessageLookupByLibrary.simpleMessage("Təkrar şifrəniz"),
         "tl": MessageLookupByLibrary.simpleMessage("tl"),
         "tlBalans": MessageLookupByLibrary.simpleMessage("TL balansı"),

@@ -16,8 +16,8 @@ class RegistrationBloc extends BaseBloc {
   final ThirdPageInfo thirdPageInfo = ThirdPageInfo();
   final AuthRepository _authRepository = sl.get<AuthRepository>();
   final OrderRepository _orderRepository = sl.get<OrderRepository>();
-  final dateFormat = DateFormat('dd.MM.yyyy');
   late final Future<List<Contact>> contactList;
+  final dateFormat = DateFormat('dd.MM.yyyy');
 
   @override
   init() {

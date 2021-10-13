@@ -64,7 +64,7 @@ class DataAuthRepository implements AuthRepository {
   Future<void> logout() async {
     final token = await _cacheManager.getAccessToken();
     if (token != null) {
-      return _authApi.logout(token);
+      await _authApi.logout('Bearer $token');
     }
    await _cacheManager.clear();
   }

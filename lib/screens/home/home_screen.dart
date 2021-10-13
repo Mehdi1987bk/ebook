@@ -16,6 +16,7 @@ import 'bottom_bar.dart';
 import 'home_header.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+int selectedMenuIndex = -1;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -26,7 +27,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final ValueNotifier<int> notifier = ValueNotifier(0);
   final ValueNotifier<bool> optionsNotifier = ValueNotifier(false);
-
 
   @override
   void initState() {
@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
               if (value) {
                 return GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  onTap:() => optionsNotifier.value = !optionsNotifier.value,
+                  onTap: () => optionsNotifier.value = !optionsNotifier.value,
                   child: Container(
                     padding: const EdgeInsets.only(bottom: 42),
                     color: AppColors.buttonText.withOpacity(0.6),
@@ -101,8 +101,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             GestureDetector(
                               // onTap: () => showDialog(
                               //     context: context, builder: (_) => InputTextd()),
-                              onTap: (){
-                                Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) {
+                              onTap: () {
+                                Navigator.push(context, CupertinoPageRoute(
+                                    builder: (BuildContext context) {
                                   return InputTextd();
                                 }));
                               },
@@ -119,8 +120,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             left: 11, right: 5),
                                         child: Image.asset('asset/union1.png')),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(top: 6, left: 5),
+                                      padding: const EdgeInsets.only(
+                                          top: 6, left: 5),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -185,7 +186,14 @@ class _HomeScreenState extends State<HomeScreen> {
   _showOptions() {
     optionsNotifier.value = !optionsNotifier.value;
   }
+  @override
+  void dispose() {
+    optionsNotifier.dispose();
+    notifier.dispose();
+    super.dispose();
+  }
 }
+
 
 class _Tabs extends StatefulWidget {
   final ValueNotifier<int> notifier;

@@ -7,9 +7,12 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:kango/app_theme.dart';
 import 'package:kango/data/cache/cache_manager.dart';
 import 'package:kango/data/network/api/order_api.dart';
+import 'package:kango/data/network/api/payment_api.dart';
 import 'package:kango/data/network/api/user_api.dart';
 import 'package:kango/data/repositories/data_auth_repository.dart';
+import 'package:kango/data/repositories/data_payment_repository.dart';
 import 'package:kango/domain/repositories/auth_repository.dart';
+import 'package:kango/domain/repositories/payment_repository.dart';
 import 'package:kango/domain/repositories/user_repository.dart';
 import 'package:kango/screens/splesh/splesh_screen.dart';
 import 'package:logger/logger.dart';
@@ -30,6 +33,7 @@ const baseUrl = 'https://kango.az/';
 const clientId = 4;
 const clientSecret = 'C8ghwl5ubVjVbyxLf7vlpEGVC7IGh9dkz8Efy5Az';
 const granyType = 'password';
+final RouteObserver<ModalRoute<void>> routeObserver = RouteObserver<ModalRoute<void>>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,10 +55,12 @@ void _registerDependency() {
   sl.registerLazySingleton<AuthApi>(() => AuthApi(dio));
   sl.registerLazySingleton<UserApi>(() => UserApi(dio));
   sl.registerLazySingleton<OrderApi>(() => OrderApi(dio));
+  sl.registerLazySingleton<PaymentApi>(() => PaymentApi(dio));
   sl.registerLazySingleton<AuthRepository>(() => DataAuthRepository());
   sl.registerLazySingleton<CacheManager>(() => DataCacheManager());
   sl.registerLazySingleton<UserRepository>(() => DataUserRepository());
   sl.registerLazySingleton<OrderRepository>(() => DataOrderRepository());
+  sl.registerLazySingleton<PaymentRepository>(() => DataPaymentRepository());
 }
 
 Dio _initDio() {
@@ -79,6 +85,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorObservers: [routeObserver],
       title: 'Flutter Demo',
       theme: appTheme,
       localizationsDelegates: [

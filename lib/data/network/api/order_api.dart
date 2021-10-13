@@ -6,6 +6,10 @@ import 'package:kango/data/network/response/declaration_order_response.dart';
 import 'package:kango/data/network/response/get_order_list_response.dart';
 import 'package:kango/data/network/response/kuryer_response.dart';
 import 'package:kango/domain/entities/contact.dart';
+import 'package:kango/domain/entities/message.dart';
+import 'package:kango/domain/entities/pagination.dart';
+import 'package:kango/domain/entities/tariff_baku.dart';
+import 'package:kango/domain/entities/delivery_ariff.dart';
 
 import 'package:retrofit/retrofit.dart';
 
@@ -36,8 +40,17 @@ abstract class OrderApi {
       @Header('Authorization') String token, @Query('page') int page );
 
 
+  @GET('api/v1.0/mobile/profile/notify-messages')
+  Future<Pagination<Message>> getMessage(
+      @Header('Authorization') String token, @Query('page') int page );
+
+
+
   @GET('api/v1.0/mobile/contact/')
   Future<List<Contact>> getContactList();
+
+  @GET('api/v1.0/mobile/tariffs')
+  Future<DeliveryTariff> getTariffs();
 
 
 }

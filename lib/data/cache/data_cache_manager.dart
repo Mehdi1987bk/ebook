@@ -12,8 +12,8 @@ const _refreshTokenTime = 'RefreshTokenTime';
 const _userKey = 'UserKey';
 
 class DataCacheManager implements CacheManager {
-  Future<Box> _authBox = Hive.openBox(_authCache);
-  Future<Box> _userBox = Hive.openBox(_userCache);
+  final Future<Box> _authBox = Hive.openBox(_authCache);
+  final Future<Box> _userBox = Hive.openBox(_userCache);
 
   @override
   Future<String?> getAccessToken() async {
@@ -56,6 +56,8 @@ class DataCacheManager implements CacheManager {
   Future<void> clear() async {
     final box = await _authBox;
     await box.clear();
+    final userBox = await _userBox;
+    await userBox.clear();
   }
 
   @override

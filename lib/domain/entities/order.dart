@@ -27,7 +27,7 @@ class Order {
   final int packageId;
   final String shopName;
   final String? link;
-  final dynamic size;
+  final dynamic? size;
   final int quantity;
   final String price;
   final String cargo;

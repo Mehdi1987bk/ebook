@@ -1,82 +1,53 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
-import 'package:kango/generated/l10n.dart';
-import 'package:kango/presentation/bloc/base_screen.dart';
+import 'package:kango/domain/entities/tariff_baku.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
-import 'package:kango/screens/trafik/tabs/tabs_one_bloc.dart';
 import 'package:kango/screens/utils/text_style.dart';
 
-class TabsOne extends BaseScreen {
-  @override
-  _TabsOneState createState() => _TabsOneState();
-}
+class PrisesPlan extends StatelessWidget {
+  final List<Price> price;
 
-class _TabsOneState extends BaseState<TabsOne, TabsOneBloc> {
+  const PrisesPlan({Key? key, required this.price}) : super(key: key);
+
   @override
-  Widget body() {
-    return Container(
-      margin: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-      padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 17),
-      decoration: BoxDecoration(
-        color: AppColors.man,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 1,
-            offset: const Offset(0, 4), // changes position of shadow
+  Widget build(BuildContext context) {
+    final tarifs = <Widget>[];
+    for (var i = 0; i < price.length; i++) {
+      tarifs.add(Traf(
+        text: price[i].max != null ? '${price[i].min} - ${price[i].max}': '${price[i].min}',
+        textPrice: price[i].newPrices,
+        textCount: price[i].oldPrices,
+      ));
+      if (i + 1 < price.length) {
+        tarifs.add(const SizedBox(
+          height: 30,
+        ));
+      }
+    }
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+          padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 17),
+          decoration: BoxDecoration(
+            color: AppColors.man,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.1),
+                spreadRadius: 1,
+                blurRadius: 1,
+                offset: const Offset(0, 4), // changes position of shadow
+              ),
+            ],
           ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Traf(
-            text: S.of(context).Qr100Qrc,
-            textPrice: '0.89',
-            textCount: '1',
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: tarifs,
           ),
-          const SizedBox(
-            height: 30,
-          ),
-          Traf(
-            text: S.of(context).Qr250Qr,
-            textPrice: '0.89',
-            textCount: '1',
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Traf(
-            text: S.of(context).Qr500Qr,
-            textPrice: '0.89',
-            textCount: '1',
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Traf(
-            text: S.of(context).Qr1Kq,
-            textPrice: '0.89',
-            textCount: '1',
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Traf(
-            text: S.of(context).KqZrind,
-            textPrice: '0.89',
-            textCount: '1',
-          ),
-        ],
-      ),
+        ),
+      ],
     );
-  }
-
-  @override
-  TabsOneBloc provideBloc() {
-    return TabsOneBloc();
   }
 }
 
@@ -127,33 +98,28 @@ class _TrafState extends State<Traf> {
               widget.textPrice,
               style: TextStyles.styleText21,
             ),
-            Image.asset(
-              'asset/dollar.png',
-              width: 9.0,
+
+            const SizedBox(
+              width: 4,
             ),
-            const SizedBox(width: 4,),
             Container(
               decoration: CustomDecorations().baseBackgroundDecoration(),
               child: Row(
                 children: [
                   Text(widget.textCount),
-                  Image.asset(
-                    'asset/dollar.png',
-                    width: 9.0,
-                    color: Colors.black,
-                  ),
                 ],
               ) /* add child content here */,
             ),
           ],
         ),
+
       ],
     );
   }
 }
 
 class CustomDecorations {
-  BoxDecoration baseBackgroundDecoration(){
+  BoxDecoration baseBackgroundDecoration() {
     return const BoxDecoration(
       image: DecorationImage(
         image: AssetImage("asset/sale_cv.png"),

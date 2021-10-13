@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kango/domain/entities/declaration.dart';
+import 'package:kango/domain/entities/message.dart';
 import 'package:kango/domain/entities/order_list.dart';
 
 part 'pagination.g.dart';
@@ -58,6 +59,9 @@ class _Converter<T> implements JsonConverter<T, Object> {
     }
     if (T == OrderList) {
       return OrderList.fromJson(json as Map<String,dynamic>) as T;
+    }
+    if (T == Message) {
+      return Message.fromJson(json as Map<String,dynamic>) as T;
     }
     throw 'Unknown type. Type $T';
   }
