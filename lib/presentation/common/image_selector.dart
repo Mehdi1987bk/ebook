@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kango/generated/l10n.dart';
 
-Future<ImageSource> showSelectImageSourceAlert(
+Future<ImageSource?> showSelectImageSourceAlert(
   BuildContext context,
 ) async {
-  ImageSource source = await showCupertinoModalPopup(
+  final source = await showCupertinoModalPopup(
       context: context,
       builder: (_) => CupertinoActionSheet(
             title: Text(S.of(context).chooseImage),

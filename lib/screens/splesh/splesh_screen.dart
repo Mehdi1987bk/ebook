@@ -40,9 +40,8 @@ class _SpleshScreenState extends State<SpleshScreen> {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        color: AppColors.appColor,
         child: Image.asset(
-          'asset/logo1.png',
+          'asset/images/logo.png',
           fit: BoxFit.fitWidth,
           width: 200,
         ),

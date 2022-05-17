@@ -1,7 +1,6 @@
-import 'package:kango/domain/entities/user_details.dart';
+import 'package:flutter/cupertino.dart';
 
 abstract class CacheManager {
-
   Future<void> saveAccessToken(String token);
 
   Future<String?> getAccessToken();
@@ -11,11 +10,15 @@ abstract class CacheManager {
   Future<String?> getRefreshToken();
 
   Future<void> saveRefreshTokenTime(int expiresIn);
+
   Future<void> clear();
 
   Future<int> getRefreshTokenTime();
 
-  Stream<User> getUser();
+  Future<Locale> getCurrentLocale();
 
-  Future<void> updateLocalUser(User user);
+  Future<void> setCurrentLocale(Locale locale);
+
+  Stream<Locale> observeLocal();
+
 }

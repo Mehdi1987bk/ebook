@@ -7,10 +7,16 @@ class Patterns {
   static final RegExp optionalEmail =
       RegExp(r"^(^$|[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+)");
   static final RegExp password = RegExp(r'^.{6,50}$');
+
+  static final RegExp demicalFormat = RegExp(r'[0-9\.]');
   static final RegExp userName = RegExp(r'^.{2,50}$');
-  static final RegExp userNames = RegExp(r'[A-Z]');
+
+  static final RegExp userNames = RegExp(r'[a-z]|[A-Z]');
+
   static final RegExp cityName = RegExp(r'^.{2,254}');
-  static final RegExp phone = RegExp(r'^.{7}$');
+  static final RegExp phone = RegExp(r'^.{6,12}$');
+  static final RegExp phonefde = RegExp(r'^.{2,12}$');
+  static final RegExp amount = RegExp(r'^.{1,10}$');
   static final RegExp seriya = RegExp(r'^.{7,8}$');
   static final RegExp codeVerificationWhiteList = RegExp(r"^\S{0,8}");
   static final RegExp questionWhiteList = RegExp(r"^.{0,200}");

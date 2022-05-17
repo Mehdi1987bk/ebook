@@ -1,69 +1,47 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
-import 'package:kango/screens/messages/messages_screen.dart';
-
-import 'home_screen.dart';
 
 class HomeHeader extends StatelessWidget {
-final VoidCallback onMenuTap;
+  final VoidCallback onMenuTap;
+  final bool showCard;
+  final bool actionaly;
+  final bool usePushReplacement;
 
-  const HomeHeader({Key? key,required this.onMenuTap}) : super(key: key);
+  const HomeHeader({Key? key,
+    required this.onMenuTap,
+    this.showCard = true,
+    this.actionaly = true,
+    this.usePushReplacement = true})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.bottomCenter,
-      height: MediaQuery.of(context).padding.top + 80,
-      decoration: const BoxDecoration(
-          color: AppColors.appColor,
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(10),
-          ),
-          image: DecorationImage(image: AssetImage('asset/vector.png'))),
+
       child: Row(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: InkWell(
-              child: Image.asset('asset/menu.png'),
-              onTap: onMenuTap
-
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: InkWell(
-              child: Image.asset('asset/story.png'),
-              onTap: () {
-
-              },
-            ),
-          ),
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: InkWell(
-              child: Image.asset('asset/box.png'),
-              onTap: () {},
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Material(
-              color: Colors.transparent,
+          if (showCard)
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: InkWell(
-                borderRadius: const BorderRadius.all(Radius.circular(25)),
-                child: Image.asset('asset/sms.png'),
-                onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (BuildContext context) { return MessageWidget(); })),
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (BuildContext context) {
+                          return Container();
+                        }));
+                  },
+                  icon: SvgPicture.asset(
+                    'asset/box.svg',
+                    height: 28,
+                  ),
+                ),
               ),
             ),
-          ),
         ],
       ),
     );
   }
-
 }
-
-
-

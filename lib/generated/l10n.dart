@@ -750,10 +750,10 @@ class S {
     );
   }
 
-  /// `© 2021 Kargolux | Bütün Hüquqlar Qorunur`
+  /// `© 2021 Kango | Bütün Hüquqlar Qorunur`
   String get oluxBtnHquqlarQorunur {
     return Intl.message(
-      '© 2021 Kargolux | Bütün Hüquqlar Qorunur',
+      '© 2021 Kango | Bütün Hüquqlar Qorunur',
       name: 'oluxBtnHquqlarQorunur',
       desc: '',
       args: [],
@@ -1499,6 +1499,1596 @@ class S {
       args: [],
     );
   }
+
+  /// `Balans keçmişi`
+  String get balansKemii {
+    return Intl.message(
+      'Balans keçmişi',
+      name: 'balansKemii',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Balans tarixçəsi`
+  String get balansTarixsi {
+    return Intl.message(
+      'Balans tarixçəsi',
+      name: 'balansTarixsi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Balans artımı`
+  String get balansArtm {
+    return Intl.message(
+      'Balans artımı',
+      name: 'balansArtm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bağla`
+  String get bala {
+    return Intl.message(
+      'Bağla',
+      name: 'bala',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Balans artırın`
+  String get balansArtrn {
+    return Intl.message(
+      'Balans artırın',
+      name: 'balansArtrn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `İstədiyiniz məbləği daxil edin`
+  String get stdiyinizMbliDaxilEdin {
+    return Intl.message(
+      'İstədiyiniz məbləği daxil edin',
+      name: 'stdiyinizMbliDaxilEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `TL balansınızdan çıxıldı`
+  String get tlBalansnzdanXld {
+    return Intl.message(
+      'TL balansınızdan çıxıldı',
+      name: 'tlBalansnzdanXld',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `TL balansınıza əlavə olundu`
+  String get tlBalansnzaLavOlundu {
+    return Intl.message(
+      'TL balansınıza əlavə olundu',
+      name: 'tlBalansnzaLavOlundu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Azn balansınıza əlavə olundu`
+  String get aznBalansnzaLavOlundu {
+    return Intl.message(
+      'Azn balansınıza əlavə olundu',
+      name: 'aznBalansnzaLavOlundu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Azn balansınızdan çıxıldı`
+  String get aznBalansnzdanXld {
+    return Intl.message(
+      'Azn balansınızdan çıxıldı',
+      name: 'aznBalansnzdanXld',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsulun qiyməti`
+  String get mhsulunQiymti {
+    return Intl.message(
+      'Məhsulun qiyməti',
+      name: 'mhsulunQiymti',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Toplam məbləğ`
+  String get toplamMbl {
+    return Intl.message(
+      'Toplam məbləğ',
+      name: 'toplamMbl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paket birlesmesi`
+  String get paketBirlesmesi {
+    return Intl.message(
+      'Paket birlesmesi',
+      name: 'paketBirlesmesi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kargo dəyəri`
+  String get kargoDyri {
+    return Intl.message(
+      'Kargo dəyəri',
+      name: 'kargoDyri',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sifarişiniz yeniləndi və yaddaşa verildi`
+  String get sifariinizYenilndiVYaddaaVerildi {
+    return Intl.message(
+      'Sifarişiniz yeniləndi və yaddaşa verildi',
+      name: 'sifariinizYenilndiVYaddaaVerildi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dəyişikliklər qeydə alındı`
+  String get dyiikliklrQeydAlnd {
+    return Intl.message(
+      'Dəyişikliklər qeydə alındı',
+      name: 'dyiikliklrQeydAlnd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsul`
+  String get mhsul {
+    return Intl.message(
+      'Məhsul',
+      name: 'mhsul',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsulun ölçüsü`
+  String get mhsulunLs {
+    return Intl.message(
+      'Məhsulun ölçüsü',
+      name: 'mhsulunLs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsulun ölçüsünü qeyd edin`
+  String get mhsulunLsnQeydEdin {
+    return Intl.message(
+      'Məhsulun ölçüsünü qeyd edin',
+      name: 'mhsulunLsnQeydEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsulun linkini qeyd edin`
+  String get mhsulunLinkiniQeydEdin {
+    return Intl.message(
+      'Məhsulun linkini qeyd edin',
+      name: 'mhsulunLinkiniQeydEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yeni məhsul`
+  String get yeniMhsul {
+    return Intl.message(
+      'Yeni məhsul',
+      name: 'yeniMhsul',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsulun sayını qeyd edin`
+  String get mhsulunSaynQeydEdin {
+    return Intl.message(
+      'Məhsulun sayını qeyd edin',
+      name: 'mhsulunSaynQeydEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsulun qiyməti qeyd edin`
+  String get mhsulunQiymtiQeydEdin {
+    return Intl.message(
+      'Məhsulun qiyməti qeyd edin',
+      name: 'mhsulunQiymtiQeydEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsulun digər detalları`
+  String get mhsulunDigrDetallar {
+    return Intl.message(
+      'Məhsulun digər detalları',
+      name: 'mhsulunDigrDetallar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsulun digər detallarını qeyd edin`
+  String get mhsulunDigrDetallarnQeydEdin {
+    return Intl.message(
+      'Məhsulun digər detallarını qeyd edin',
+      name: 'mhsulunDigrDetallarnQeydEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sifariş et`
+  String get sifariEt {
+    return Intl.message(
+      'Sifariş et',
+      name: 'sifariEt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsulun qiymətini qeyd edərkən Türkiyə daxili kargonu da üzərinə gəlib qiymət xanasına yazmalısınız. Əks halda sifrişiniz alınarkən balansınızdan çıxılacaqdır.`
+  String get mhsulunQiymtiniQeydEdrknTrkiyDaxiliKargonuDaZrinGlib {
+    return Intl.message(
+      'Məhsulun qiymətini qeyd edərkən Türkiyə daxili kargonu da üzərinə gəlib qiymət xanasına yazmalısınız. Əks halda sifrişiniz alınarkən balansınızdan çıxılacaqdır.',
+      name: 'mhsulunQiymtiniQeydEdrknTrkiyDaxiliKargonuDaZrinGlib',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Geriyə`
+  String get geriy {
+    return Intl.message(
+      'Geriyə',
+      name: 'geriy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Toplam qiymət`
+  String get toplamQiymt {
+    return Intl.message(
+      'Toplam qiymət',
+      name: 'toplamQiymt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ümumi məhsul qiyməti`
+  String get mumiMhsulQiymti {
+    return Intl.message(
+      'Ümumi məhsul qiyməti',
+      name: 'mumiMhsulQiymti',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ümumi xidmət haqqı (3%)`
+  String get mumiXidmtHaqq5 {
+    return Intl.message(
+      'Ümumi xidmət haqqı (3%)',
+      name: 'mumiXidmtHaqq5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ümumi məhsul sayı`
+  String get mumiMhsulSay {
+    return Intl.message(
+      'Ümumi məhsul sayı',
+      name: 'mumiMhsulSay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Təcili sifariş`
+  String get tciliSifari {
+    return Intl.message(
+      'Təcili sifariş',
+      name: 'tciliSifari',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `* Əlavə xidmətlərin ödənişini sifarişin təhvili zamanı edilir.`
+  String get lavXidmtlrinDniiniSifariinThviliZamanEdilir {
+    return Intl.message(
+      '* Əlavə xidmətlərin ödənişini sifarişin təhvili zamanı edilir.',
+      name: 'lavXidmtlrinDniiniSifariinThviliZamanEdilir',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Seçilmiş xidmətlər`
+  String get seilmiXidmtlr {
+    return Intl.message(
+      'Seçilmiş xidmətlər',
+      name: 'seilmiXidmtlr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `+1`
+  String get one {
+    return Intl.message(
+      '+1',
+      name: 'one',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `* Sifarişin məbləği kargonuz Türkiyə ofisinə çatdıqda bəlli olacaqdır.`
+  String get sifariinMbliKargonuzTrkiyOfisinAtdqdaBlliOlacaqdr {
+    return Intl.message(
+      '* Sifarişin məbləği kargonuz Türkiyə ofisinə çatdıqda bəlli olacaqdır.',
+      name: 'sifariinMbliKargonuzTrkiyOfisinAtdqdaBlliOlacaqdr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `* Zəhmət olmasa məsafəli satış sözləşməsini qəbul edin.`
+  String get zhmtOlmasaMsafliSatSzlmsiniQbulEdin {
+    return Intl.message(
+      '* Zəhmət olmasa məsafəli satış sözləşməsini qəbul edin.',
+      name: 'zhmtOlmasaMsafliSatSzlmsiniQbulEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məsafəli satış sözləşməsini qəbul edirəm.`
+  String get msafliSatSzlmsiniQbulEdirm {
+    return Intl.message(
+      'Məsafəli satış sözləşməsini qəbul edirəm.',
+      name: 'msafliSatSzlmsiniQbulEdirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Səbətə əlavə et`
+  String get sbtLavEt {
+    return Intl.message(
+      'Səbətə əlavə et',
+      name: 'sbtLavEt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ödəniş et`
+  String get dniEt {
+    return Intl.message(
+      'Ödəniş et',
+      name: 'dniEt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Səbətim`
+  String get sbtim {
+    return Intl.message(
+      'Səbətim',
+      name: 'sbtim',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Say`
+  String get say {
+    return Intl.message(
+      'Say',
+      name: 'say',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ölçü:`
+  String get l {
+    return Intl.message(
+      'Ölçü:',
+      name: 'l',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Şəxsi məlumatlar`
+  String get xsiMlumatlar {
+    return Intl.message(
+      'Şəxsi məlumatlar',
+      name: 'xsiMlumatlar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ad`
+  String get ad {
+    return Intl.message(
+      'Ad',
+      name: 'ad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Soyad`
+  String get soyad {
+    return Intl.message(
+      'Soyad',
+      name: 'soyad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filial`
+  String get filial {
+    return Intl.message(
+      'Filial',
+      name: 'filial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filiallarımız`
+  String get filiallarmz {
+    return Intl.message(
+      'Filiallarımız',
+      name: 'filiallarmz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kango Tel:`
+  String get kangoTel {
+    return Intl.message(
+      'Kango Tel:',
+      name: 'kangoTel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sizin paketiniz yoxdur`
+  String get sizinPaxdur {
+    return Intl.message(
+      'Sizin paketiniz yoxdur',
+      name: 'sizinPaxdur',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paket elave olundu`
+  String get paketElaveOlundu {
+    return Intl.message(
+      'Paket elave olundu',
+      name: 'paketElaveOlundu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paket əlavə edilmişdir`
+  String get paketLavEdilmidir {
+    return Intl.message(
+      'Paket əlavə edilmişdir',
+      name: 'paketLavEdilmidir',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ümumi qiymət:`
+  String get mumiQiymt {
+    return Intl.message(
+      'Ümumi qiymət:',
+      name: 'mumiQiymt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bakı ofisində bağlamalarınız yoxdur`
+  String get bakOfisindBalamalarnzYoxdur {
+    return Intl.message(
+      'Bakı ofisində bağlamalarınız yoxdur',
+      name: 'bakOfisindBalamalarnzYoxdur',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Məhsulun çəkisi:`
+  String get mhsulunKisi {
+    return Intl.message(
+      'Məhsulun çəkisi:',
+      name: 'mhsulunKisi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Əlavə xidmət:`
+  String get lavXidmt {
+    return Intl.message(
+      'Əlavə xidmət:',
+      name: 'lavXidmt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bu məhsulu simək istədiyinizə əminsiniz?`
+  String get buMhsuluSimkIstdiyinizMinsiniz {
+    return Intl.message(
+      'Bu məhsulu simək istədiyinizə əminsiniz?',
+      name: 'buMhsuluSimkIstdiyinizMinsiniz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Beli`
+  String get beli {
+    return Intl.message(
+      'Beli',
+      name: 'beli',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Heir`
+  String get heir {
+    return Intl.message(
+      'Heir',
+      name: 'heir',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Onlayn daşıma`
+  String get onlaynDama {
+    return Intl.message(
+      'Onlayn daşıma',
+      name: 'onlaynDama',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ünvan Baş ofis`
+  String get nvanBaOfis {
+    return Intl.message(
+      'Ünvan Baş ofis',
+      name: 'nvanBaOfis',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Xidmətlərimiz`
+  String get xidmetlerimiz {
+    return Intl.message(
+      'Xidmətlərimiz',
+      name: 'xidmetlerimiz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sifarişlərim`
+  String get sifarilrim {
+    return Intl.message(
+      'Sifarişlərim',
+      name: 'sifarilrim',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vergi numarası`
+  String get vergiNumaras {
+    return Intl.message(
+      'Vergi numarası',
+      name: 'vergiNumaras',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mobil telefon`
+  String get mobilTelefon {
+    return Intl.message(
+      'Mobil telefon',
+      name: 'mobilTelefon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ülke`
+  String get lke {
+    return Intl.message(
+      'Ülke',
+      name: 'lke',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Semt`
+  String get semt {
+    return Intl.message(
+      'Semt',
+      name: 'semt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Adres başlığı`
+  String get adresBal {
+    return Intl.message(
+      'Adres başlığı',
+      name: 'adresBal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `İlçe`
+  String get le {
+    return Intl.message(
+      'İlçe',
+      name: 'le',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ZIP/Post kodu`
+  String get zippostKodu {
+    return Intl.message(
+      'ZIP/Post kodu',
+      name: 'zippostKodu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Türkiyə ünvanım`
+  String get trkiyNvanm {
+    return Intl.message(
+      'Türkiyə ünvanım',
+      name: 'trkiyNvanm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `İl - şehir`
+  String get lEhir {
+    return Intl.message(
+      'İl - şehir',
+      name: 'lEhir',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Imtina edilib`
+  String get imtinaEdilib {
+    return Intl.message(
+      'Imtina edilib',
+      name: 'imtinaEdilib',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yaradilib`
+  String get yaradilib {
+    return Intl.message(
+      'Yaradilib',
+      name: 'yaradilib',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Odenis edilib`
+  String get odenisEdilib {
+    return Intl.message(
+      'Odenis edilib',
+      name: 'odenisEdilib',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Turkiye ofisindedir`
+  String get turkiyeOfisindedir {
+    return Intl.message(
+      'Turkiye ofisindedir',
+      name: 'turkiyeOfisindedir',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alinib`
+  String get alinib {
+    return Intl.message(
+      'Alinib',
+      name: 'alinib',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kargodadir`
+  String get kargodadir {
+    return Intl.message(
+      'Kargodadir',
+      name: 'kargodadir',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Baki ofisindedir`
+  String get bakiOfisindedir {
+    return Intl.message(
+      'Baki ofisindedir',
+      name: 'bakiOfisindedir',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tehvil verilib`
+  String get tehvilVerilib {
+    return Intl.message(
+      'Tehvil verilib',
+      name: 'tehvilVerilib',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dasinma haqqi odenilib`
+  String get dasinmaHaqqiOdenilib {
+    return Intl.message(
+      'Dasinma haqqi odenilib',
+      name: 'dasinmaHaqqiOdenilib',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Problemli baglama`
+  String get problemliBaglama {
+    return Intl.message(
+      'Problemli baglama',
+      name: 'problemliBaglama',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Silmək istədiyinizdən əminsinizmi?`
+  String get silmkIstdiyinizMinsiniz {
+    return Intl.message(
+      'Silmək istədiyinizdən əminsinizmi?',
+      name: 'silmkIstdiyinizMinsiniz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rədd etmək`
+  String get rddEtmk {
+    return Intl.message(
+      'Rədd etmək',
+      name: 'rddEtmk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tesdiq edirem`
+  String get tesdiqEdirem {
+    return Intl.message(
+      'Tesdiq edirem',
+      name: 'tesdiqEdirem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kopyalandı`
+  String get kopyaland {
+    return Intl.message(
+      'Kopyalandı',
+      name: 'kopyaland',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filiallar`
+  String get filiallar {
+    return Intl.message(
+      'Filiallar',
+      name: 'filiallar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ümumi məhsul dəyəri`
+  String get mumiMhsulDyri {
+    return Intl.message(
+      'Ümumi məhsul dəyəri',
+      name: 'mumiMhsulDyri',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kanqo ailəsinə xoş gəlmisiniz`
+  String get kanqoAilsinXoGlmisiniz {
+    return Intl.message(
+      'Kanqo ailəsinə xoş gəlmisiniz',
+      name: 'kanqoAilsinXoGlmisiniz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Şəxsiyyət vəsiqəsinin FİN kodu daxil edin`
+  String get xsiyytVsiqsininFnKoduDaxilEdin {
+    return Intl.message(
+      'Şəxsiyyət vəsiqəsinin FİN kodu daxil edin',
+      name: 'xsiyytVsiqsininFnKoduDaxilEdin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Şifrəniz (minimum 6 simvol olmalıdır)`
+  String get ifrnizMinimum6SimvolOlmaldr {
+    return Intl.message(
+      'Şifrəniz (minimum 6 simvol olmalıdır)',
+      name: 'ifrnizMinimum6SimvolOlmaldr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sizin sifarişiniz yoxdur`
+  String get sizinSifariinizYoxdur {
+    return Intl.message(
+      'Sizin sifarişiniz yoxdur',
+      name: 'sizinSifariinizYoxdur',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sizin bağlamaniz yoxdur`
+  String get sizinBalamanizYoxdur {
+    return Intl.message(
+      'Sizin bağlamaniz yoxdur',
+      name: 'sizinBalamanizYoxdur',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Asan sifariş`
+  String get srtliSifari {
+    return Intl.message(
+      'Asan sifariş',
+      name: 'srtliSifari',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GET STARTED`
+  String get getStarted {
+    return Intl.message(
+      'GET STARTED',
+      name: 'getStarted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome back!`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome back!',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get enterYourEmail {
+    return Intl.message(
+      'Enter your email',
+      name: 'enterYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comfirm your password`
+  String get comfirmYourPassword {
+    return Intl.message(
+      'Comfirm your password',
+      name: 'comfirmYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forget password`
+  String get forgetPassword {
+    return Intl.message(
+      'Forget password',
+      name: 'forgetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LOGIN`
+  String get login {
+    return Intl.message(
+      'LOGIN',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get dontHaveAnAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'dontHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get send {
+    return Intl.message(
+      'Send',
+      name: 'send',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change password`
+  String get changePassword {
+    return Intl.message(
+      'Change password',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your password`
+  String get yourPassword {
+    return Intl.message(
+      'Your password',
+      name: 'yourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your password`
+  String get enterYourPassword {
+    return Intl.message(
+      'Enter your password',
+      name: 'enterYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your new password`
+  String get yourNewPassword {
+    return Intl.message(
+      'Your new password',
+      name: 'yourNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new password`
+  String get enterYourNewPassword {
+    return Intl.message(
+      'Enter your new password',
+      name: 'enterYourNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your password again`
+  String get yourPasswordAgain {
+    return Intl.message(
+      'Your password again',
+      name: 'yourPasswordAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Re-enter your new password`
+  String get reenterYourNewPassword {
+    return Intl.message(
+      'Re-enter your new password',
+      name: 'reenterYourNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Müəllif:`
+  String get mllif {
+    return Intl.message(
+      'Müəllif:',
+      name: 'mllif',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pulsuz`
+  String get pulsuz {
+    return Intl.message(
+      'Pulsuz',
+      name: 'pulsuz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AZN`
+  String get azn {
+    return Intl.message(
+      'AZN',
+      name: 'azn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `İli`
+  String get li {
+    return Intl.message(
+      'İli',
+      name: 'li',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bölmə`
+  String get blm {
+    return Intl.message(
+      'Bölmə',
+      name: 'blm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nəşiriyyat`
+  String get niriyyat {
+    return Intl.message(
+      'Nəşiriyyat',
+      name: 'niriyyat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ISBN nömrəsi`
+  String get isbnNmrsi {
+    return Intl.message(
+      'ISBN nömrəsi',
+      name: 'isbnNmrsi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ISBN`
+  String get isbn {
+    return Intl.message(
+      'ISBN',
+      name: 'isbn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paylaşdı`
+  String get paylad {
+    return Intl.message(
+      'Paylaşdı',
+      name: 'paylad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paylaşıldı`
+  String get paylald {
+    return Intl.message(
+      'Paylaşıldı',
+      name: 'paylald',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Əlaqəli e-kitablar`
+  String get laqliEkitablar {
+    return Intl.message(
+      'Əlaqəli e-kitablar',
+      name: 'laqliEkitablar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oxu`
+  String get oxu {
+    return Intl.message(
+      'Oxu',
+      name: 'oxu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kateqoriyalar`
+  String get kateqoriyalar {
+    return Intl.message(
+      'Kateqoriyalar',
+      name: 'kateqoriyalar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Actual`
+  String get aktual {
+    return Intl.message(
+      'Actual',
+      name: 'aktual',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The most popular`
+  String get nMhur {
+    return Intl.message(
+      'The most popular',
+      name: 'nMhur',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yeni`
+  String get yeni {
+    return Intl.message(
+      'Yeni',
+      name: 'yeni',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hamısını gör`
+  String get hamsnGr {
+    return Intl.message(
+      'Hamısını gör',
+      name: 'hamsnGr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Axtarış`
+  String get axtar {
+    return Intl.message(
+      'Axtarış',
+      name: 'axtar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oxunan kitablar`
+  String get oxunanKitablar {
+    return Intl.message(
+      'Oxunan kitablar',
+      name: 'oxunanKitablar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Parolu dəyiş`
+  String get paroluDyi {
+    return Intl.message(
+      'Parolu dəyiş',
+      name: 'paroluDyi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Çıxmaq`
+  String get xmaq {
+    return Intl.message(
+      'Çıxmaq',
+      name: 'xmaq',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Silin`
+  String get silin {
+    return Intl.message(
+      'Silin',
+      name: 'silin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ru`
+  String get ru {
+    return Intl.message(
+      'ru',
+      name: 'ru',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `en`
+  String get en {
+    return Intl.message(
+      'en',
+      name: 'en',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `az`
+  String get az {
+    return Intl.message(
+      'az',
+      name: 'az',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Title`
+  String get title {
+    return Intl.message(
+      'Title',
+      name: 'title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `vvvvvvvvv`
+  String get vvvvvvvvv {
+    return Intl.message(
+      'vvvvvvvvv',
+      name: 'vvvvvvvvv',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book name`
+  String get bookName {
+    return Intl.message(
+      'Book name',
+      name: 'bookName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message(
+      'Categories',
+      name: 'categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose`
+  String get choose {
+    return Intl.message(
+      'Choose',
+      name: 'choose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Publication Year`
+  String get publicationYear {
+    return Intl.message(
+      'Publication Year',
+      name: 'publicationYear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Publisher Name`
+  String get publisherName {
+    return Intl.message(
+      'Publisher Name',
+      name: 'publisherName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ISBN Number`
+  String get isbnNumber {
+    return Intl.message(
+      'ISBN Number',
+      name: 'isbnNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password Protected`
+  String get passwordProtected {
+    return Intl.message(
+      'Password Protected',
+      name: 'passwordProtected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get price {
+    return Intl.message(
+      'Price',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ShortDescription`
+  String get shortdescription {
+    return Intl.message(
+      'ShortDescription',
+      name: 'shortdescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `KART SAHİBİ`
+  String get kartSahb {
+    return Intl.message(
+      'KART SAHİBİ',
+      name: 'kartSahb',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sizin Kartiniz yoxdur`
+  String get sizinKartinizYoxdur {
+    return Intl.message(
+      'Sizin Kartiniz yoxdur',
+      name: 'sizinKartinizYoxdur',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kart məlumatları`
+  String get kartMlumatlar {
+    return Intl.message(
+      'Kart məlumatları',
+      name: 'kartMlumatlar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kart Elave et`
+  String get kartElaveEt {
+    return Intl.message(
+      'Kart Elave et',
+      name: 'kartElaveEt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expiration Year`
+  String get expirationYear {
+    return Intl.message(
+      'Expiration Year',
+      name: 'expirationYear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cardholder Name`
+  String get cardholderName {
+    return Intl.message(
+      'Cardholder Name',
+      name: 'cardholderName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number`
+  String get number {
+    return Intl.message(
+      'Number',
+      name: 'number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expiration Month`
+  String get expirationMonth {
+    return Intl.message(
+      'Expiration Month',
+      name: 'expirationMonth',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -1507,6 +3097,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'az'),
+      Locale.fromSubtags(languageCode: 'ru'),
     ];
   }
 

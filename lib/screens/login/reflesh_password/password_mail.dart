@@ -18,13 +18,6 @@ class PasswordMail extends StatelessWidget {
             ),
             Container(
                 height: MediaQuery.of(context).size.height * 0.8,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: Svg('asset/forgot.svg',
-                            size: Size(MediaQuery.of(context).size.width,
-                                MediaQuery.of(context).size.height * 0.8)),
-                        fit: BoxFit.fitWidth),
-                    color: AppColors.appColor),
                 child: Padding(
                   padding: EdgeInsets.only(
                     top: MediaQuery.of(context).padding.top * 8,
@@ -44,9 +37,9 @@ class PasswordMail extends StatelessWidget {
                       ),
                       Center(
                           child: Image.asset(
-                        'asset/ok.png',
-                        width: 90,
-                      )),
+                            'asset/ok.png',
+                            width: 90,
+                          )),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.2,
                       ),
@@ -56,7 +49,7 @@ class PasswordMail extends StatelessWidget {
                             padding: EdgeInsets.symmetric(
                                 vertical: 20,
                                 horizontal:
-                                    MediaQuery.of(context).size.width * 0.42),
+                                MediaQuery.of(context).size.width * 0.42),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                             ),
@@ -65,10 +58,12 @@ class PasswordMail extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             )),
                         onPressed: () {
-                          Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(
-                            builder: (BuildContext context) =>
-                                LoginScreen(),
-                          ), (route) => false);
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              CupertinoPageRoute(
+                                builder: (BuildContext context) => LoginScreen(),
+                              ),
+                                  (route) => false);
                         },
                         child: Text(
                           S.of(context).rli,

@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart' hide Headers;
 import 'package:kango/data/network/response/user_details_response.dart';
 
-import 'package:kango/domain/entities/user_details.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../../main.dart';
+import '../response/get_user_cart_info.dart';
 
 part 'user_api.g.dart';
 
@@ -12,6 +12,13 @@ part 'user_api.g.dart';
 abstract class UserApi {
   factory UserApi(Dio dio, {String? baseUrl}) = _UserApi;
 
-  @GET('api/v1.0/mobile/user/auth-detailes')
-  Future<UserDetailsResponse> getUser(@Header('Authorization') String token);
+  @GET('api/get_user')
+  Future<UserDetailsResponse> getUser();
+
+  @GET('api/account/card')
+  Future<GetUserCartInfo> getUserCartInfo();
+
+  @POST('api/account/card')
+  Future<GetUserCartInfo> createUserCartInfo(@Body() GetUserCartInfo request);
+
 }

@@ -1,16 +1,10 @@
 import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:kango/domain/entities/declaration.dart';
-import 'package:kango/domain/entities/message.dart';
-import 'package:kango/domain/entities/order_list.dart';
+import 'package:kango/domain/entities/book.dart';
+import 'package:kango/domain/entities/review.dart';
 
 part 'pagination.g.dart';
-
-Pagination paginationFromJson(String str) =>
-    Pagination.fromJson(json.decode(str));
-
-String paginationToJson(Pagination data) => json.encode(data.toJson());
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class Pagination<T> {
@@ -18,29 +12,29 @@ class Pagination<T> {
   @_Converter()
   final List<T> data;
   final String firstPageUrl;
-  final int from;
+  final int? from;
   final int lastPage;
   final String lastPageUrl;
   final String? nextPageUrl;
   final String path;
   final int perPage;
   final String? prevPageUrl;
-  final int to;
+  final int? to;
   final int total;
 
   Pagination({
-    required this.currentPage,
-    required this.data,
-    required this.firstPageUrl,
-    required this.from,
-    required this.lastPage,
-    required this.lastPageUrl,
-    required this.nextPageUrl,
-    required this.path,
-    required this.perPage,
-    required this.prevPageUrl,
-    required this.to,
-    required this.total,
+    this.currentPage = 0,
+    this.data = const [],
+    this.firstPageUrl = '',
+    this.from,
+    this.lastPage = 0,
+    this.lastPageUrl = '',
+    this.nextPageUrl,
+    this.path = '',
+    this.perPage = 0,
+    this.prevPageUrl,
+    this.to,
+    this.total = 0,
   });
 
   factory Pagination.fromJson(Map<String, dynamic> json) =>
@@ -54,16 +48,13 @@ class _Converter<T> implements JsonConverter<T, Object> {
 
   @override
   T fromJson(Object json) {
-    if (T == Declaration) {
-      return Declaration.fromJson(json as Map<String,dynamic>) as T;
+    if (T == Book) {
+      return Book.fromJson(json as Map<String, dynamic>) as T;
     }
-    if (T == OrderList) {
-      return OrderList.fromJson(json as Map<String,dynamic>) as T;
+    if (T == Review) {
+      return Review.fromJson(json as Map<String, dynamic>) as T;
     }
-    if (T == Message) {
-      return Message.fromJson(json as Map<String,dynamic>) as T;
-    }
-    throw 'Unknown type. Type $T';
+    throw 'Unknown Pagination type. Type $T';
   }
 
   @override

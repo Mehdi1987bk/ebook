@@ -1,9 +1,12 @@
 
 
-import 'package:kango/domain/entities/user_details.dart';
+
+import 'package:kango/data/network/response/user_details_response.dart';
+
+import '../../data/network/response/get_user_cart_info.dart';
 
 abstract class UserRepository {
- Future<User> getUserDetails();
- Stream<User> getLocalUser();
- Future<void> updateLocalUser();
+ Future<UserDetailsResponse> getUserDetails();
+ Future<GetUserCartInfo> getUserCartInfo();
+ Future<void> createUserCartInfo(GetUserCartInfo request);
 }

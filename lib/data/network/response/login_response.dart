@@ -4,16 +4,15 @@ part 'login_response.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class LoginResponse{
-final String tokenType;
-final int expiresIn;
-final String accessToken;
-final String refreshToken;
+  final bool success;
+  final String token;
 
-LoginResponse(this.tokenType, this.expiresIn, this.accessToken, this.refreshToken);
 
-factory LoginResponse.fromJson(Map<String, dynamic> json) =>
-    _$LoginResponseFromJson(json);
+  LoginResponse(this.success, this.token);
 
-Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
+  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
+      _$LoginResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
 
 }

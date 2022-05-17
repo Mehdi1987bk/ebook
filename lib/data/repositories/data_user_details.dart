@@ -1,27 +1,31 @@
-import 'package:kango/data/cache/cache_manager.dart';
 import 'package:kango/data/network/api/user_api.dart';
-import 'package:kango/domain/entities/user_details.dart';
+import 'package:kango/data/network/response/get_user_cart_info.dart';
+import 'package:kango/data/network/response/user_details_response.dart';
 import 'package:kango/domain/repositories/auth_repository.dart';
 import 'package:kango/domain/repositories/user_repository.dart';
 import 'package:kango/main.dart';
 
 class DataUserRepository implements UserRepository {
-  final _authRepository = sl.get<AuthRepository>();
   final _userApi = sl.get<UserApi>();
-  final CacheManager _cacheManager = sl.get<CacheManager>();
+
   @override
-  Future<User> getUserDetails() async {
-    final token = await _authRepository.getToken();
-    final response = await _userApi.getUser('Bearer $token');
-    return response.user;
+  Future<UserDetailsResponse> getUserDetails() async {
+    return _userApi.getUser();
   }
 
   @override
-  Stream<User> getLocalUser() => _cacheManager.getUser();
+  Future<GetUserCartInfo> getUserCartInfo() {
+   return _userApi.getUserCartInfo();
+  }
+
 
   @override
-  Future<void> updateLocalUser() async{
-   final user = await getUserDetails();
-   await _cacheManager.updateLocalUser(user);
+  Future<void> createUserCartInfo(GetUserCartInfo request) async {
+    final response = await _userApi.createUserCartInfo(request);
+    print(response);
+
   }
+
+
+
 }

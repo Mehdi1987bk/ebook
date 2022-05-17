@@ -77,7 +77,7 @@ abstract class PaginableBloc<T> extends BaseBloc {
   }
 
   void deletedItem(T item) {
-    bool isDeleted = data.remove(item);
+    final isDeleted = data.remove(item);
     if (isDeleted) paginableList.add(data);
   }
 

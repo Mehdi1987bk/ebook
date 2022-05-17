@@ -10,6 +10,8 @@ mixin ScrollControllerMixin<Page extends BaseScreen, Bloc extends PaginableBloc>
     on BaseState<Page, Bloc> {
   final ScrollController scrollController = ScrollController();
 
+
+
   @override
   void initState() {
     super.initState();

@@ -1,12 +1,16 @@
 import 'package:kango/data/cache/cache_manager.dart';
 import 'package:kango/data/network/api/auth_api.dart';
 import 'package:kango/data/network/request/forgot_password_request.dart';
-import 'package:kango/data/network/request/kuryer_request.dart';
 import 'package:kango/data/network/request/login_request.dart';
 import 'package:kango/data/network/request/registration_reguest.dart';
+import 'package:kango/data/network/request/update_password_request.dart';
+import 'package:kango/data/network/response/get_author_books_response.dart';
 import 'package:kango/data/network/response/login_response.dart';
 import 'package:kango/domain/repositories/auth_repository.dart';
 import 'package:kango/main.dart';
+
+import '../../domain/entities/book.dart';
+import '../../domain/entities/pagination.dart';
 
 class DataAuthRepository implements AuthRepository {
   final AuthApi _authApi = sl.get<AuthApi>();
@@ -15,65 +19,43 @@ class DataAuthRepository implements AuthRepository {
   @override
   Future<void> login(LoginRequest request) async {
     final response = await _authApi.login(request);
-    return _saveTokens(response);
-  }
+    print(response);
 
-  _saveTokens(LoginResponse response) async {
-    await _cacheManager.saveAccessToken(response.accessToken);
-    await _cacheManager.saveRefreshToken(response.refreshToken);
-    return _cacheManager.saveRefreshTokenTime(response.expiresIn);
+    return _cacheManager.saveAccessToken(response.token);
   }
 
   @override
   Future<bool> isLogged() async {
-    final token = await _cacheManager.getAccessToken();
+    var token = await _cacheManager.getAccessToken();
     return token != null && token.isNotEmpty;
   }
 
-  Future<String> _refreshToken() async {
-    return '';
-  }
-
   @override
-  Future<String> getToken() async {
-    var token = await _cacheManager.getAccessToken();
-    if (token == null || token.isEmpty) {
-      throw 'Token is null';
-    }
-    final currentTime = DateTime.now().millisecondsSinceEpoch;
-    final expireIn = await _cacheManager.getRefreshTokenTime();
-    if (expireIn <= currentTime) {
-      try {
-        token = await _refreshToken();
-      } catch (e) {
-        logger.e(e);
-        throw 'Token is null';
-      }
-      ;
-    }
-    return token;
-  }
-
-  @override
-  Future<void> registe(RegistrationRequest request) async {
+  Future<void> register(RegistrationRequest request) async {
     final response = await _authApi.register(request);
     await _cacheManager.saveAccessToken(response.token);
   }
 
   @override
   Future<void> logout() async {
-    final token = await _cacheManager.getAccessToken();
-    if (token != null) {
-      await _authApi.logout('Bearer $token');
-    }
-   await _cacheManager.clear();
+    await _authApi.logout();
+
+    await _cacheManager.clear();
   }
 
   @override
-  Future<String> forgotPassword(ForgotPasswordRequest request) async{
-    final response = await _authApi.forgotPassword(request);
-    return response.success;
+  Future<void> forgotPassword(ForgotPasswordRequest request) async {
+    return _authApi.forgotPassword(request);
   }
 
+  @override
+  Future<void> editPassword(UpdatePasswordRequest request) async {
+    return _authApi.editPassword(request,);
+  }
 
+  @override
+  Future<List<Book>?> getAuthorBooks({int page = 1}) async{
+   final response = await _authApi.getAuthorBooks(page);
+   return response.ebooks;
+  }
 }

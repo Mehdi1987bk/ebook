@@ -1,18 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:kango/generated/l10n.dart';
 import 'package:kango/presentation/bloc/base_screen.dart';
-import 'package:kango/presentation/common/user_details.dart';
 import 'package:kango/presentation/resourses/app_colors.dart';
+import 'package:kango/screens/home/tabs/setting/reading_book/reading_book_screen.dart';
 import 'package:kango/screens/home/tabs/setting/setting_bloc.dart';
+import 'package:kango/screens/home/tabs/setting/update_password/password_edit_widget.dart';
+import 'package:kango/screens/home/tabs/setting/update_password/update_password_screen.dart';
+import 'package:kango/screens/home/tabs/setting/user_details_edit/user_details_edit_screen.dart';
 import 'package:kango/screens/login/login_screen.dart';
 import 'package:kango/screens/utils/text_style.dart';
 
+import '../../../../domain/entities/book.dart';
 import '../../../../main.dart';
+import '../../../add_book/add_book_screen.dart';
 import '../../home_screen.dart';
-import 'foreign_address/foreign_address.dart';
+import 'add_user_cart/add_user_cart_screen.dart';
+import 'cart/cart_info_screen.dart';
+import 'my_book_downlide/MyBookDownlideScreen.dart';
 
 class SettingScreen extends BaseScreen {
+  final Future<List<Book>?> authorBooks;
+
+  SettingScreen(this.authorBooks);
+
   @override
   _SettingScreenState createState() => _SettingScreenState();
 }
@@ -29,13 +41,6 @@ class _SettingScreenState extends BaseState<SettingScreen, SettingBloc>
   Widget body() {
     return ListView(
       children: [
-        UserDetails(),
-        Container(
-          margin:
-              const EdgeInsets.only(bottom: 25, left: 16, right: 16, top: 31),
-          height: 1,
-          color: AppColors.appColor,
-        ),
         Padding(
           padding: const EdgeInsets.only(
             left: 20,
@@ -44,80 +49,136 @@ class _SettingScreenState extends BaseState<SettingScreen, SettingBloc>
           child: Align(
             alignment: Alignment.topLeft,
             child: Text(
-              S.of(context).xsiKabinet,
+              S.of(context).settings,
               style: TextStyles.styleText4,
             ),
           ),
         ),
-        Container(
-          padding: const EdgeInsets.only(top: 46, left: 20),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 13),
-                child: Image.asset('asset/melumat.png'),
-              ),
-              Text(
-                S.of(context).xsiMlumatlarm,
-                style: TextStyles.styleText12,
-              ),
-            ],
-          ),
-        ),
-        GestureDetector(
+        InkWell(
           onTap: () {
             Navigator.push(context,
                 CupertinoPageRoute(builder: (BuildContext context) {
-              return ForeignAddress();
+              return TrafikScreen();
             }));
           },
           child: Container(
-            padding: const EdgeInsets.only(top: 61, left: 20),
+            margin: const EdgeInsets.only(right: 16, left: 16, top: 15),
+            height: 50,
+            padding: const EdgeInsets.only(left: 10),
+            decoration: BoxDecoration(
+                color: AppColors.appColor,
+                borderRadius: BorderRadius.circular(10)),
             child: Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 13),
-                  child: Image.asset('asset/vill.png'),
+                IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset(
+                    'asset/keya.svg',
+                    height: 28,
+                    color: Colors.white,
+                  ),
                 ),
                 Text(
-                  S.of(context).xariciNvanlarm,
+                  S.of(context).paroluDyi,
                   style: TextStyles.styleText12,
                 ),
               ],
             ),
           ),
         ),
-        Container(
-          padding: const EdgeInsets.only(top: 61, left: 20),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 13),
-                child: Image.asset('asset/keya.png'),
-              ),
-              Text(
-                S.of(context).ifrniDyi,
-                style: TextStyles.styleText12,
-              ),
-            ],
-          ),
-        ),
-        GestureDetector(
+
+        FutureBuilder<List<Book>?>(
+            future: widget.authorBooks,
+            builder: (context, snapshot) {
+              //Todo Author Book Add
+              if (snapshot.hasData ) {
+                return  InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    CupertinoPageRoute(builder: (BuildContext context) {
+                      return CartInfoScreen();
+                    }),
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.only(right: 16, left: 16, top: 10),
+                    height: 50,
+                    padding: const EdgeInsets.only(top: 0, left: 10),
+                    decoration: BoxDecoration(
+                        color: AppColors.appColor,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                            },
+                            icon: Icon(Icons.credit_card_rounded,color: Colors.white,)
+                        ),
+                        Text(
+                          S.of(context).kartMlumatlar,
+                          style: TextStyles.styleText12,
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }
+              return const SizedBox();
+            }),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        InkWell(
           onTap: () => bloc.logout().then((value) =>
               Navigator.pushAndRemoveUntil(context,
                   CupertinoPageRoute(builder: (BuildContext context) {
                 return LoginScreen();
               }), (route) => false)),
           child: Container(
-            padding: const EdgeInsets.only(top: 61, left: 20),
+            margin: const EdgeInsets.only(right: 16, left: 16, top: 10),
+            height: 50,
+            padding: const EdgeInsets.only(top: 0, left: 10),
+            decoration: BoxDecoration(
+                color: AppColors.appColor,
+                borderRadius: BorderRadius.circular(10)),
             child: Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 13),
-                  child: Image.asset('asset/loqaut.png'),
+                IconButton(
+                  onPressed: () {
+                    // Navigator.push(context,
+                    //     CupertinoPageRoute(builder: (BuildContext context) {
+                    //   return UserDetailsEditScreen();
+                    // }));
+                  },
+                  icon: SvgPicture.asset(
+                    'asset/loqaut.svg',
+                    height: 25,
+                    color: Colors.white,
+                  ),
                 ),
                 Text(
-                  S.of(context).xEt,
+                  S.of(context).xmaq,
                   style: TextStyles.styleText12,
                 ),
               ],
@@ -134,11 +195,7 @@ class _SettingScreenState extends BaseState<SettingScreen, SettingBloc>
     super.dispose();
   }
 
-  @override
-  void didPop() {
-    selectedMenuIndex = -1;
-    super.didPop();
-  }
+
 
   @override
   SettingBloc provideBloc() {

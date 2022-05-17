@@ -6,7 +6,7 @@ import 'package:kango/presentation/bloc/base_bloc.dart';
 class LoginBloc extends BaseBloc{
   final AuthRepository _authRepository = sl.get<AuthRepository>();
   Future<void> login(String email, String password) {
-   return  run(_authRepository.login(LoginRequest(username: email,password: password)));
+   return  run(_authRepository.login(LoginRequest(email: email,password: password)));
 
   }
 }

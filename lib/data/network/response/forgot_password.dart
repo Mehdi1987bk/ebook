@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'forgot_password.g.dart';
-@JsonSerializable()
+
 @JsonSerializable(explicitToJson: true)
 class ForgotPasswordResponse{
   final String success;
